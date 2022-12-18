@@ -2,7 +2,7 @@
   body {
     background-color: #080808;
     font-family: 'Open Sans', sans-serif;
-  }
+}
 
   footer {
     background-color: #181818;
@@ -13,6 +13,7 @@
     width: 100%;
     position: fixed;
     bottom: 0;
+    margin: 0;
   }
 
   h1 {
@@ -21,12 +22,21 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 1000;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background: linear-gradient(to right, rgb(255, 85, 85), orange, rgb(255, 239, 12));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .favicon-credit {
+    color: rgb(116, 116, 116);
   }
 
   .button-container {
@@ -38,11 +48,27 @@
     justify-content: center;
   }
 
-  button {
-    color: white;
-    background-color: #272727;
+  .button {
+    text-decoration: none;
+    color: transparent;
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    border-radius: 15px; 
+    border: 1px solid #272727; 
     margin: 0 10px;
-    border-radius: 20px; /* Add a rounded outline to the buttons */
-    border: 2px solid #272727; /* Add a border to the buttons */
-    padding: 11px 10px;
-  }
+    padding: 10px 15px;
+    width: 210px;
+    text-align: center;
+
+    transition: border 0.5s ease, color 0.5s ease;
+}
+
+.button:hover {
+    background: linear-gradient(to right, rgb(255, 94, 0), rgb(255, 174, 0), rgb(255, 196, 0));
+    -webkit-background-clip: text;
+    background-clip: text;
+    border: 1px solid rgba(255, 145, 0, 0.473);
+}
+  
+
