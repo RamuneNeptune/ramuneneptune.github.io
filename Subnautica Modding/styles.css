@@ -1,0 +1,30 @@
+
+  body {
+    background-color: #080808;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  footer {
+    background-color: #181818;
+    text-align: center;
+    padding: 20px;
+    color: rgb(167, 167, 167);
+    font-size: 14px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  h1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: white;
+    font-weight: 1000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
