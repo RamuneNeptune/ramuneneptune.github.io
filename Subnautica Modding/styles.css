@@ -2,7 +2,7 @@
   body {
     background-color: #080808;
     font-family: 'Open Sans', sans-serif;
-}
+  }
 
   footer {
     background-color: #181818;
@@ -14,11 +14,12 @@
     position: fixed;
     bottom: 0;
     margin: 0;
+    left: 0;
   }
 
   h1 {
     color: white;
-    position: absolute;
+    position: absolute;;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -62,13 +63,12 @@
     text-align: center;
 
     transition: border 0.5s ease, color 0.5s ease;
-}
+  }
 
-.button:hover {
+  .button:hover {
     background: linear-gradient(to right, rgb(255, 94, 0), rgb(255, 174, 0), rgb(255, 196, 0));
     -webkit-background-clip: text;
     background-clip: text;
     border: 1px solid rgba(255, 145, 0, 0.473);
-}
+  }
   
-
