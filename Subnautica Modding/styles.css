@@ -16,15 +16,33 @@
   }
 
   h1 {
+    color: white;
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 60px;
-    color: white;
     font-weight: 1000;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .button-container {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    color: white;
+    background-color: #272727;
+    margin: 0 10px;
+    border-radius: 20px; /* Add a rounded outline to the buttons */
+    border: 2px solid #272727; /* Add a border to the buttons */
+    padding: 11px 10px;
   }
