@@ -66,9 +66,9 @@
   }
 
   .button:hover {
-    background: linear-gradient(to right, rgb(255, 94, 0), rgb(255, 174, 0), rgb(255, 196, 0));
+    background: linear-gradient(to right, rgb(255, 0, 119), rgb(255, 10, 173), rgb(146, 12, 255));
     -webkit-background-clip: text;
     background-clip: text;
-    border: 1px solid rgba(255, 166, 0, 0.774);
+    border: 1px solid rgba(255, 0, 170, 0.603);
   }
   
