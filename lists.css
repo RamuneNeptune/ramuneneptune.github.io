@@ -1,0 +1,104 @@
+
+
+/*---------------------- GLOBAL ---------------------*/
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  body {
+    background-color: #080808;
+    font-family: 'Open Sans', sans-serif;
+    
+    padding: 0;
+    margin: 0;
+    
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+  
+  main {
+    display: grid;
+    place-content: center;
+  }
+
+/*---------------------- GLOBAL ---------------------*/
+
+
+
+/*---------------------- STUFF? ---------------------*/
+
+  h1 {
+    color: white;
+
+    font-size: 2.5em;
+    font-weight: 1000;
+    text-align: center;
+    
+
+    background: linear-gradient(to right, rgb(255, 0, 119), rgb(255, 10, 173), rgb(146, 12, 255));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+/*---------------------- STUFF? ---------------------*/
+
+
+
+/*--------------------- BUTTONS --------------------*/
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button {
+    margin: 0.7em;
+    padding: 0.8em;
+    width: 8.6em;
+
+    text-align: center;
+
+    text-decoration: none;
+    color: transparent;
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    border: 0.1em solid #4e4e4e; 
+    border-radius: 0.8em; 
+
+    transition: border 0.5s ease, color 0.5s ease;
+  }
+
+  .button:hover {
+    background: linear-gradient(to right, rgb(255, 0, 119), rgb(255, 10, 173), rgb(146, 12, 255));
+    -webkit-background-clip: text;
+    background-clip: text;
+    border: 0.1em solid rgba(255, 0, 170, 0.603);
+  }
+  
+/*--------------------- BUTTONS --------------------*/
+
+
+
+/*---------------------- FOOTER ---------------------*/
+
+footer {
+    background-color: #181818;
+    text-align: center;
+    padding: 1.4em;
+    color: #A7A7A7;
+    font-size: 0.9em;
+    margin-top: 1rem;
+  }
+
+  .favicon-credit {
+    color: #747474;
+  }
+
+/*---------------------- FOOTER ---------------------*/
