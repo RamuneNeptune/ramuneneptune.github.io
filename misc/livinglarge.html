@@ -12,8 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
     <link rel="shortcut icon" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="livinglarge.css">
-    <script src="main.js"></script>
-
+    <script src="/node_modules/clipboard/dist/clipboard.min.js"></script>
   </head>
 <!----->
 
@@ -48,13 +47,18 @@
         <span class="br-main"></span>
         <span class="br-main"></span>
         <span class="br-main"></span>
-        <h2>All the text above is <a href="" class="button" id>Clickable</a> and redirects you to the mod</h2>
+        <h2>All the text above is <a href="" class="button">Clickable</a> and redirects you to the mod</h2>
+        <h2>Ping me in the <strong>Subnautica Modding</strong> discord server if you find any updated mods</h2>
+        <h2>Click the text to copy my username<a class="button"  data-clipboard-text="@RamuneNeptune#1816">@RamuneNeptune#1816</button></h2>
       </main>
   
   <footer> 
     Site Created by RamuneNeptune | <span class="favicon-credit">Favicon by "Acituanbus" © CC By NC 4.0</span> 
   </footer>
 
+  <script>
+    var clipboard = new ClipboardJS('.button');
+  </script>
 </body>
 <!----->
 

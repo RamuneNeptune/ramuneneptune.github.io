@@ -36,7 +36,7 @@ html, body {
     font-weight: 1000;
     text-align: center;
 
-    background: linear-gradient(to right, #0059ff, #00a2ff, #00d9ff);
+    background: linear-gradient(to right, #0084ff, #006b96, #0099ff, #00eeff, #00ffd5);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -47,7 +47,7 @@ html, body {
 
     font-size: 1.2em;
     font-weight: 1000;
-    margin-bottom: 2em;
+    margin-bottom: 0.8em;
     margin-top: 0em;
 
     text-align: center;
@@ -74,6 +74,14 @@ html, body {
     text-align: center;
   }
 
+  strong {
+    font-weight: bolder;
+    background: rgb(91, 255, 140);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
 /*---------------------- STUFF? ---------------------*/
 
 
