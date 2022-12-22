@@ -58,6 +58,22 @@ html, body {
     -webkit-text-fill-color: transparent;
   }
 
+  h3 {
+    color: white;
+
+    font-size: 0.9em;
+    font-weight: 1000;
+    margin-bottom: 1.6em;
+    margin-top: 0em;
+
+    text-align: center;
+
+    background: #dddddd;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .br-main {
     display: block;
     margin-bottom: 0.4em;
@@ -75,11 +91,24 @@ html, body {
   }
 
   strong {
-    font-weight: bolder;
-    background: rgb(91, 255, 140);
+    margin: 0em;
+    padding: 0.2em;
+    font-size: 1.2em;
+
+    text-align: center;
+
+    text-decoration: none;
+    color: transparent;
+    background: linear-gradient(to right, #0084ff, #00b7ff, #00ccff, #00ffd5);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  strong:hover {
+    background: linear-gradient(to right, #ffffff, #f3f5f5, #f3f5f5);
+    -webkit-background-clip: text;
+    background-clip: text;
   }
   
 /*---------------------- STUFF? ---------------------*/
