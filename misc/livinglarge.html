@@ -10,6 +10,9 @@
     <link rel="shortcut icon" href="../favicon.png">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="livinglarge.css">
+    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
   </head>
 <!----->
 
@@ -18,14 +21,30 @@
 <body>
 
     <main>
+
+      <script>
+        function showAlert() {
+          Swal.fire({
+            text: 'Copied to clipboard',
+            icon: 'success',
+            color: '#ffffff',
+            background: '#2a2c36',
+            timer: 1800,
+            timerProgressBar: true,
+            position: 'top-end',
+            toast: true,
+            showConfirmButton: false,
+          });
+        }
+      </script>
+
         <h1>Updated Mods</h1>
-        <h2>The following mods are updated for the recent Subnautica 2.0 update<span class="br-main"></span>Each mod is to be installed to "BepInEx\plugins", not "QMods"</h2>
+        <h2>The following mods are updated for the recent Subnautica 2.0 update<span class="br-main"></span>Each mod is to be installed to <strong>BepInEx\plguins</strong>, not <strong>QMods</strong></h2>
 
         <p>━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
 
         <div class="button-container">
-          <a href="https://www.nexusmods.com/subnautica/mods/1108" target="_blank" class="button"><strong>Subnautica BepInEx Pack</strong></a>
-          <h3>^ Download this file and unzip it in your game folder before anything else!</h3>
+          <a href="https://www.nexusmods.com/subnautica/mods/1108" target="_blank" class="button">Subnautica BepInEx Pack</a>
           <a href="https://www.nexusmods.com/subnautica/mods/1111" target="_blank" class="button">More Quick Slots (BepInEx)</a>
           <a href="https://www.nexusmods.com/subnautica/mods/1106" target="_blank" class="button">Archipelago Randomizer</a>
           <a href="https://www.nexusmods.com/subnautica/mods/1112" target="_blank" class="button">Configuration Manager</a>
@@ -49,10 +68,16 @@
         <span class="br-main"></span>
         
         <h2>
-          All the text above is <a href="" class="button">Clickable</a> and redirects you to the mod<br>
-          Ping me for any updated mods<a href="" class="button">@RamuneNeptune#1816</button><br>
+          Ping me for any updated mods
+          <a class="button" id="button-clipboard" data-clipboard-text="@RamuneNeptune#1816" cursor="pointer">@RamuneNeptune#1816</a>
+          ( Click my name to copy it! )
         </h2>    
 
+        <script>
+          var clipboard = new ClipboardJS('#button-clipboard');
+          document.getElementById("button-clipboard").style.cursor = "pointer";
+          document.querySelector('#button-clipboard').addEventListener('click', showAlert);
+        </script>
     </main>
   <footer> 
     Site Created by RamuneNeptune | <span class="favicon-credit">Favicon by "Acituanbus" © CC By NC 4.0</span> 

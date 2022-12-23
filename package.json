@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "clipboard": "^2.0.11"
+    "clipboard": "^2.0.11",
+    "sweetalert2": "^11.6.16"
   }
 }

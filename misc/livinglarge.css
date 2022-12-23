@@ -61,9 +61,9 @@ html, body {
   h3 {
     color: white;
 
-    font-size: 0.9em;
+    font-size: 1.03em;
     font-weight: 1000;
-    margin-bottom: 1.6em;
+    margin-bottom: 0.2em;
     margin-top: 0em;
 
     text-align: center;
@@ -123,6 +123,7 @@ html, body {
     align-items: center;
     justify-content: center;
   }
+
 
   .button {
     margin: 0em;
