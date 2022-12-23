@@ -104,12 +104,6 @@ html, body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
-  strong:hover {
-    background: linear-gradient(to right, #ffffff, #f3f5f5, #f3f5f5);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
   
 /*---------------------- STUFF? ---------------------*/
 
