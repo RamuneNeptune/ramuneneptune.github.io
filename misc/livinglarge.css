@@ -77,7 +77,7 @@ html, body {
   .br-main {
     display: block;
     margin-bottom: 0.4em;
-  }
+  } /* Just a custom <br> */
 
   p {
     color: white;
