@@ -119,7 +119,6 @@ html, body {
   .button-container {
     text-align: center;
     align-items: center;
-  	text-align: center;
     overflow-y: scroll;
     max-height: 400px;
   }
