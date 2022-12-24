@@ -79,6 +79,11 @@ html, body {
     margin-bottom: 0.4em;
   } /* Just a custom <br> */
 
+  .br-mods {
+    display: block;
+    margin-bottom: 0.2em;
+  } /* Just a custom <br> */
+
   p {
     color: white;
 
@@ -112,8 +117,7 @@ html, body {
 /*--------------------- BUTTONS --------------------*/
 
   .button-container {
-    display: flex;
-    flex-direction: column;
+    text-align: center;
     align-items: center;
     overflow-y: scroll;
     max-height: 400px;
