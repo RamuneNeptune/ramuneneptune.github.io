@@ -54,6 +54,8 @@ const mods = [
 
     const container = document.querySelector(".button-container");
 
+    mods.sort((a, b) => b.name.length - a.name.length);
+
     for (const mod of mods) { // loop through each object in the "mods" array
       const tag = document.createElement("a"); // create an <a> element
       tag.href = mod.url; // set the href attribute to the url of the current mod
@@ -61,4 +63,8 @@ const mods = [
       tag.classList.add("button"); // add the class "button" to the <a> element
       tag.innerText = mod.name; // set the inner text of the <a> element to the name of the current mod
       container.appendChild(tag); // append the <a> element to the container element
+
+      const br = document.createElement("span"); // create a <span> element
+      br.classList.add("br-main"); // add the class "br-main" to the <span> element
+      container.appendChild(br); // append the <span> element to the container element
     }
