@@ -55,10 +55,10 @@ const mods = [
     const container = document.querySelector(".button-container");
 
     for (const mod of mods) { // loop through each object in the "mods" array
-      const atag = document.createElement("a"); // create an <a> element
-      atag.href = mod.url; // set the href attribute to the url of the current mod
-      atag.target = "_blank"; // set the target attribute to "_blank" so the link opens in a new tab
-      atag.classList.add("button"); // add the class "button" to the <a> element
-      atag.innerText = mod.name; // set the inner text of the <a> element to the name of the current mod
-      container.appendChild(atag); // append the <a> element to the container element
+      const tag = document.createElement("a"); // create an <a> element
+      tag.href = mod.url; // set the href attribute to the url of the current mod
+      tag.target = "_blank"; // set the target attribute to "_blank" so the link opens in a new tab
+      tag.classList.add("button"); // add the class "button" to the <a> element
+      tag.innerText = mod.name; // set the inner text of the <a> element to the name of the current mod
+      container.appendChild(tag); // append the <a> element to the container element
     }
