@@ -13,6 +13,7 @@
     <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="livinglarge.js"></script>
   </head>
 <!----->
 
@@ -21,55 +22,15 @@
 <body>
 
     <main>
-
-      <script>
-        function showAlert() {
-          Swal.fire({
-            text: 'Copied to clipboard',
-            icon: 'success',
-            color: '#ffffff',
-            background: '#2a2c36',
-            timer: 1800,
-            timerProgressBar: true,
-            position: 'top-end',
-            toast: true,
-            showConfirmButton: false,
-          });
-        }
-      </script>
-
         <h1>Updated Mods</h1>
         <h2>The following mods are updated for the recent Subnautica 2.0 update<span class="br-main"></span>Each mod is to be installed to <strong>BepInEx\plugins</strong>, not <strong>QMods</strong> anymore</h2>
 
         <p>━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
 
         <div class="button-container">
-
-          <a href="https://www.nexusmods.com/subnautica/mods/1108" target="_blank" class="button">Subnautica BepInEx Pack</a> 
-          <h3>This mod is required to use any of these mods</h3>
-
-          <a href="https://www.nexusmods.com/subnautica/mods/554" target="_blank" class="button">Cyclops Docking Mod</a> 
-          <h3>This mod needs to be installed first if you use it,<br>as it has special installation instructions</h3>
-
-          <a href="https://www.nexusmods.com/subnautica/mods/1111" target="_blank" class="button">More Quick Slots (BepInEx)</a><span class="br-main"></span>
-          <h3>This mod is a new More Quick Slots mod for BepInEx,<br>made by a different author, so keep that in mind!</h3>
-
-          <a href="https://www.nexusmods.com/subnautica/mods/51" target="_blank" class="button">Moonpool Vehicle Repair</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/1106" target="_blank" class="button">Archipelago Randomizer</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/1112" target="_blank" class="button">Configuration Manager</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/933" target="_blank" class="button">Visible Locker Interior</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/418" target="_blank" class="button">Color Buildable Items</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/763" target="_blank" class="button">Fast Loading Screen</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/490" target="_blank" class="button">Advanced Inventory</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/791" target="_blank" class="button">Force Resolution</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/1104" target="_blank" class="button">BepInEx Tweaks</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/12" target="_blank" class="button">Subnautica Map</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/1105" target="_blank" class="button">No PDA Delay</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/954" target="_blank" class="button">Color Lifepod</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/427" target="_blank" class="button">Snap Builder</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/196" target="_blank" class="button">More Ingots</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/434" target="_blank" class="button">Color Tools</a><span class="br-main"></span>
-          <a href="https://www.nexusmods.com/subnautica/mods/24" target="_blank" class="button">Easy Craft</a>
+          <a href="https://www.nexusmods.com/subnautica/mods/1108" target="_blank" class="button">Subnautica BepInEx Pack</a> <h3>This mod is required to use any of these mods</h3>
+          <a href="https://www.nexusmods.com/subnautica/mods/554" target="_blank" class="button">Cyclops Docking Mod</a> <h3>This mod needs to be installed first if you use it,<br>as it has special installation instructions</h3>
+          <a href="https://www.nexusmods.com/subnautica/mods/1111" target="_blank" class="button">More Quick Slots (BepInEx)</a><span class="br-main"></span> <h3>This mod is a new More Quick Slots mod for BepInEx,<br>made by a different author, so keep that in mind!</h3>
         </div>
 
         <p>━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
@@ -81,13 +42,27 @@
         
         <h2>
           Ping me for any updated mods
-          <a class="button" id="button-clipboard" data-clipboard-text="@RamuneNeptune#1816" cursor="pointer">@RamuneNeptune#1816</a>
-          ( Click my name to copy it! )
+          <a class="button" id="button-clipboard" data-clipboard-text="@RamuneNeptune#1816" cursor="pointer">@RamuneNeptune#1816</a> Click my name to copy it!
         </h2>    
 
         <script>
           var clipboard = new ClipboardJS('#button-clipboard');
           document.getElementById("button-clipboard").style.cursor = "pointer";
+
+          function showAlert() {
+            Swal.fire({
+              text: 'Copied to clipboard',
+              icon: 'success',
+              color: '#ffffff',
+              background: '#2a2c36',
+              timer: 1800,
+              timerProgressBar: true,
+              position: 'top-end',
+              toast: true,
+              showConfirmButton: false,
+            });
+          }
+
           document.querySelector('#button-clipboard').addEventListener('click', showAlert);
         </script>
     </main>
