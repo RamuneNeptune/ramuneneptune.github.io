@@ -116,6 +116,10 @@ var modder_desp = "https://github.com/desperationfighter/Desperationfighter-Subn
     const gridUpdated = document.querySelector(".grid-updated");
     const gridBroken = document.querySelector(".grid-broken");
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    // Working Mods
     for (const mod of working) {
       const workingList = document.createElement("a");
       workingList.setAttribute("href", mod.url);
@@ -128,34 +132,35 @@ var modder_desp = "https://github.com/desperationfighter/Desperationfighter-Subn
       br.classList.add("br-main"); // add the class "br-main" to the <span> element
       gridWorking.appendChild(br); // append the <span> element to the container element
     }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+    // Updated Mods
     for (const mod of updated) {
       const updatedList = document.createElement("a");
       updatedList.setAttribute("href", mod.url);
       updatedList.setAttribute("target", "_blank");
       updatedList.innerText = mod.name;
       updatedList.classList.add("button");
-      gridWorking.appendChild(updatedList);
+      gridUpdated.appendChild(updatedList);
 
       const br = document.createElement("span"); // create a <span> element
       br.classList.add("br-main"); // add the class "br-main" to the <span> element
       gridUpdated.appendChild(br); // append the <span> element to the container element
     }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    for (const mod of updated) {
+    
+    // Broken Mods
+    for (const mod of broken) {
       const brokenList = document.createElement("a");
       brokenList.setAttribute("href", mod.url);
       brokenList.setAttribute("target", "_blank");
       brokenList.innerText = mod.name;
       brokenList.classList.add("button");
-      gridWorking.appendChild(brokenList);
+      gridBroken.appendChild(brokenList);
 
       const br = document.createElement("span"); // create a <span> element
       br.classList.add("br-main"); // add the class "br-main" to the <span> element
-      gridUpdated.appendChild(br); // append the <span> element to the container element
+      gridBroken.appendChild(br); // append the <span> element to the container element
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
