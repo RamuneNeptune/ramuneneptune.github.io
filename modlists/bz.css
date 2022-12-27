@@ -1,0 +1,183 @@
+
+
+/*---------------------- GLOBAL ---------------------*/
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  body {
+    background-color: #080808;
+    font-family: 'Open Sans', sans-serif;
+    
+    padding: 0;
+    margin: 0;
+    
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+  
+  main {
+    display: grid;
+    place-content: center;
+  }
+
+/*---------------------- GLOBAL ---------------------*/
+
+
+
+/*---------------------- STUFF? ---------------------*/
+
+  h1 {
+    color: white;
+
+    font-size: 2.5em;
+    font-weight: 1000;
+    text-align: center;
+
+    background: linear-gradient(to right, #f74c06,#f9bc2c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h2 {
+    color: white;
+
+    font-size: 1.2em;
+    font-weight: 1000;
+    margin-bottom: 0.8em;
+    margin-top: 0em;
+
+    text-align: center;
+
+    background: #dddddd;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h3 {
+    color: white;
+
+    font-size: 0.9em;
+    font-weight: 1000;
+    margin-bottom: 1em;
+    margin-top: 0em;
+
+    text-align: center;
+
+    background: #dddddd;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .br-main {
+    display: block;
+    margin-bottom: 0.4em;
+  } /* Just a custom <br> */
+
+  .br-mods {
+    display: block;
+    margin-bottom: 0.2em;
+  } /* Just a custom <br> */
+
+  p {
+    color: white;
+
+    font-size: 1.2em;
+    font-weight: 1000;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+
+    text-align: center;
+  }
+
+  strong {
+    margin: 0em;
+    padding: 0.2em;
+    font-size: 0.9em;
+
+    text-align: center;
+
+    text-decoration: none;
+    color: transparent;
+    background: linear-gradient(to right, #f74c06,#f9bc2c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+/*---------------------- STUFF? ---------------------*/
+
+
+
+/*--------------------- BUTTONS --------------------*/
+
+  .button-container {
+    text-align: center;
+    align-items: center;
+    overflow-y: scroll;
+    max-height: 400px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+  .button {
+    margin: 0em;
+    padding: 0.2em;
+    
+    text-align: center;
+
+    text-decoration: none;
+    color: transparent;
+}
+
+  .button:hover {
+    background: linear-gradient(to right, #ffffff, #f3f5f5, #f3f5f5);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .grid-updated .button {
+    background: linear-gradient(to right, #06f793,#9bd46a);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .grid-broken .button {
+    background: linear-gradient(to right, #01dbff,#05c9f9);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .grid-working .button {
+    background: linear-gradient(to right, #f84b00,#fd4b2f);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+/*--------------------- BUTTONS --------------------*/
+
+
+
+/*---------------------- FOOTER ---------------------*/
+
+footer {
+    background-color: #181818;
+    text-align: center;
+    padding: 1.4em;
+    color: #A7A7A7;
+    font-size: 0.9em;
+    margin-top: 1rem;
+  }
+
+  .favicon-credit {
+    color: #747474;
+  }
+
+/*---------------------- FOOTER ---------------------*/

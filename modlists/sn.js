@@ -52,9 +52,9 @@ const mods = [
     { name: "Base Kits", url: "https://www.nexusmods.com/subnautica/mods/1119" }
     ];
 
-    const container = document.querySelector(".button-container");
+    const container = document.querySelector(".button-container"); // get the container element
 
-    mods.sort((a, b) => b.name.length - a.name.length);
+    mods.sort((a, b) => b.name.length - a.name.length); // sort the "mods" array by the length of the name property of each object
 
     for (const mod of mods) { // loop through each object in the "mods" array
       const tag = document.createElement("a"); // create an <a> element

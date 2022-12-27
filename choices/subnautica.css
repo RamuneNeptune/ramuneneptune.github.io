@@ -37,7 +37,7 @@ html, body {
     text-align: center;
     
 
-    background: linear-gradient(to right, #a8ff78, #20ff7d, #78ffd6, #00e1ff);
+    background: linear-gradient(to right, #95ecb0, #f3f98a);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -59,7 +59,7 @@ html, body {
   .button {
     margin: 0.7em;
     padding: 0.8em;
-    width: 5.2em;
+    width: 7em;
 
     text-align: center;
 
@@ -76,10 +76,10 @@ html, body {
   }
 
   .button:hover {
-    background: linear-gradient(to right, #a8ff78, #20ff7d, #78ffd6, #00e1ff);
+    background: linear-gradient(to right, #95ecb0, #f3f98a);
     -webkit-background-clip: text;
     background-clip: text;
-    border: 0.1em solid rgba(0, 255, 170, 0.774);
+    border: 0.1em solid #76915f;
   }
   
 /*--------------------- BUTTONS --------------------*/
