@@ -144,19 +144,20 @@ html, body {
   }
 
   .grid-updated .button {
-    background: linear-gradient(to right, #06f793,#9bd46a);
+    background: linear-gradient(to right, #01dbff,#05c9f9);
+
     -webkit-background-clip: text;
     background-clip: text;
   }
 
   .grid-broken .button {
-    background: linear-gradient(to right, #01dbff,#05c9f9);
+    background: linear-gradient(to right, #f84b00,#fd4b2f);
     -webkit-background-clip: text;
     background-clip: text;
   }
 
   .grid-working .button {
-    background: linear-gradient(to right, #f84b00,#fd4b2f);
+    background: linear-gradient(to right, #06f793,#9bd46a);
     -webkit-background-clip: text;
     background-clip: text;
   }
