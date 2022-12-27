@@ -95,6 +95,9 @@ const broken = [
   { name: "Unknown Name", url: "" }
     ];
 
+
+// hello RevanFan and maybe others, if using one of the below variables for a URL, make sure in the url: "" you remove the "" and replace it just like `url: modder_desp` alright?
+
 var modder_metious_alan = "https://github.com/Metious/MetiousSubnauticaMods";
 var modder_mrpurple = "https://github.com/MrPurple6411/MrPurple6411-Subnautica-Mods/releases/tag/3.26.2022";
 var modder_dawrecka = "https://github.com/DaWrecka/Beta-Mods/tree/main/BelowZero";
