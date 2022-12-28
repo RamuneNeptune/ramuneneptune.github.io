@@ -118,7 +118,7 @@ html, body {
 
   .button-container {
     text-align: center;
-    align-items: center;
+    align-items: top;
     overflow-y: scroll;
     max-height: 400px;
 
