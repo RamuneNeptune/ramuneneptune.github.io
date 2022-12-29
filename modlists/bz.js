@@ -4,39 +4,41 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const working = [
-  { name: "Attitude Indicator", url: "" },
-  { name: "All Items 1x1", url: "" },
-  { name: "Advanced Storage", url: "" },
-  { name: "Advanced Inventory", url: "" },
-  { name: "Autosort Lockers SML", url: "" },
-  { name: "Base Clocks", url: "" },
+  { name: "Attitude Indicator", url: "https://www.nexusmods.com/subnauticabelowzero/mods/191" },
+  { name: "All Items 1x1", url: "https://github.com/MrPurple6411/MrPurple6411-Subnautica-Mods/releases/tag/3.26.2022" },
+  { name: "Advanced Storage", url: "https://www.nexusmods.com/subnauticabelowzero/mods/86" },
+  { name: "Advanced Inventory", url: "https://www.nexusmods.com/subnauticabelowzero/mods/84" },
+  { name: "Autosort Lockers SML", url: "https://github.com/DaWrecka/Beta-Mods/tree/main/BelowZero" },
+  { name: "Base Clocks", url: "https://www.nexusmods.com/subnauticabelowzero/mods/264" },
   { name: "Better Scanner Blips BZ", url: "" },
-  { name: "Better Scanner Room", url: "" },
-  { name: "Craftable Ion Cubes", url: "" },
+  { name: "Better Scanner Room", url: "https://github.com/Metious/BetterScannerRoom/releases" },
+  { name: "Craftable Ion Cubes", url: "https://www.nexusmods.com/subnauticabelowzero/mods/151" },
   { name: "Custom Craft 2 (CC2)", url: "" },
-  { name: "Custom Databoxes BZ", url: "" },
-  { name: "DAATQS", url: "" },
-  { name: "Discord Rich Presence BZ", url: "" },
-  { name: "Fabricator No Auto Close", url: "" },
-  { name: "Faster PDA Scan", url: "" },
-  { name: "Faster Prawn Drill", url: "" },
-  { name: "Moonpool Vehicle Repair", url: "" },
-  { name: "Metal Hands BZ", url: "" },
-  { name: "No Eating Noises", url: "" },
-  { name: "Prawn Suit Grappling Arm Upgrade", url: "" },
-  { name: "Prawn Suit Jet Upgrade", url: "" },
+  { name: "Custom Databoxes BZ", url: "https://github.com/Metious/MetiousSubnauticaMods/blob/master/README.md" },
+  { name: "Customise Your Storage BZ", url: "https://github.com/DaWrecka/Beta-Mods/tree/main/BelowZero" },
+  { name: "DAATQS", url: "https://belowzero.thunderstore.io/package/Desperationfighter/DAATQSBZ/" },
+  { name: "Discord Rich Presence BZ", url: "https://github.com/Metious/MetiousSubnauticaMods/blob/master/README.md" },
+  { name: "Extra Options BZ", url: "https://belowzero.thunderstore.io/package/MrPurple6411/Extra_Options_BZ/" },
+  { name: "Fabricator No Auto Close", url: "https://belowzero.thunderstore.io/package/MrPurple6411/Fabricator_No_Auto_Close_BZ/" },
+  { name: "Faster PDA Scan", url: "https://www.nexusmods.com/subnauticabelowzero/mods/185" },
+  { name: "Faster Prawn Drill", url: "https://www.nexusmods.com/subnauticabelowzero/mods/182" },
+  { name: "Moonpool Vehicle Repair", url: "https://www.nexusmods.com/subnauticabelowzero/mods/106" },
+  { name: "Metal Hands BZ", url: "https://github.com/desperationfighter/Desperationfighter-SubnauticaMods/releases" },
+  { name: "No Eating Noise", url: "https://www.nexusmods.com/subnauticabelowzero/mods/89" },
+  { name: "Prawn Suit Grappling Arm Upgrade", url: "https://www.nexusmods.com/subnauticabelowzero/mods/141" },
+  { name: "Prawn Suit Jet Upgrade", url: "https://www.nexusmods.com/subnauticabelowzero/mods/140" },
   { name: "Rotate Moonpool", url: "" },
-  { name: "Roll Control", url: "" },
-  { name: "Swim Charge Inventory", url: "" },
+  { name: "Roll Control", url: "https://www.nexusmods.com/subnauticabelowzero/mods/156" },
+  { name: "Swim Charge Inventory", url: "https://www.nexusmods.com/subnauticabelowzero/mods/189" },
   { name: "Snowfox Water Hoverbike", url: "" },
-  { name: "Seatruck Speed Upgrades", url: "" },
-  { name: "Seatruck Armor Upgrades", url: "" },
-  { name: "Seatruck Depth Upgrades", url: "" },
-  { name: "Seatruck Hotkeys", url: "" },
-  { name: "Seatruck Thermal", url: "" },
-  { name: "Seatruck Solar", url: "" },
-  { name: "Snap Builder", url: "" },
-  { name: "Storage Info", url: "" }
+  { name: "Seatruck Speed Upgrades", url: "https://www.nexusmods.com/subnauticabelowzero/mods/55" },
+  { name: "Seatruck Armor Upgrades", url: "https://www.nexusmods.com/subnauticabelowzero/mods/56" },
+  { name: "Seatruck Depth Upgrades", url: "https://www.nexusmods.com/subnauticabelowzero/mods/54" },
+  { name: "Seatruck Hotkeys", url: "https://www.nexusmods.com/subnauticabelowzero/mods/173" },
+  { name: "Seatruck Thermal", url: "https://www.nexusmods.com/subnauticabelowzero/mods/193" },
+  { name: "Seatruck Solar", url: "https://www.nexusmods.com/subnauticabelowzero/mods/192" },
+  { name: "Snap Builder", url: "https://www.nexusmods.com/subnauticabelowzero/mods/57" },
+  { name: "Storage Info", url: "https://belowzero.thunderstore.io/package/Desperationfighter/StorageInfoBZ/" }
     ];
 
 const updated = [
@@ -74,35 +76,24 @@ const updated = [
     ];
 
 const broken = [
-  { name: "Autosave", url: "" },
-  { name: "Advanced Highlighting", url: "" },
-  { name: "Blurry Textures Fix", url: "" },
-  { name: "Better Teleportation Tool", url: "" },
-  { name: "Builder Module", url: "" },
+  { name: "Autosave", url: "https://www.nexusmods.com/subnauticabelowzero/mods/107" },
+  { name: "Advanced Highlighting", url: "https://www.nexusmods.com/subnauticabelowzero/mods/178" },
+  { name: "Blurry Textures Fix", url: "https://www.nexusmods.com/subnauticabelowzero/mods/165" },
+  { name: "Better Teleportation Tool", url: "https://www.nexusmods.com/subnauticabelowzero/mods/92" },
+  { name: "Builder Module", url: "https://belowzero.thunderstore.io/package/MrPurple6411/Builder_Module_BZ/" },
   { name: "Cheat Manager Zero", url: "" },
   { name: "Defabricator", url: "" },
-  { name: "Disable Crosshair BZ", url: "" },
-  { name: "Enhanced Sleep", url: "" },
-  { name: "Fish Can Not Live Out Of Water", url: "" },
-  { name: "Grav Trap Storage", url: "" },
-  { name: "Jukebox Spotify", url: "" },
+  { name: "Disable Crosshair BZ", url: "https://www.nexusmods.com/subnauticabelowzero/mods/239" },
+  { name: "Enhanced Sleep", url: "https://www.nexusmods.com/subnauticabelowzero/mods/78" },
+  { name: "Grav Trap Storage", url: "https://belowzero.thunderstore.io/package/MrPurple6411/Gravtrap_Storage_BZ/" },
+  { name: "Jukebox Spotify", url: "https://www.nexusmods.com/subnauticabelowzero/mods/215" },
   { name: "LVVitality", url: "" },
-  { name: "Medical Cabinet Fix", url: "" },
-  { name: "Quit To Desktop BZ", url: "" },
-  { name: "Stats Tracker", url: "" },
-  { name: "Tech Pistol", url: "" },
-  { name: "Tool Inspection BZ", url: "" },
-  { name: "Unknown Name", url: "" }
+  { name: "Fish Can Not Live Out Of Water", url: "" },
+  { name: "Quit To Desktop BZ", url: "https://github.com/Metious/MetiousSubnauticaMods/blob/master/README.md" },
+  { name: "Tech Pistol", url: "https://belowzero.thunderstore.io/package/MrPurple6411/Tech_Pistol_BZ/" },
+  { name: "Tool Inspection BZ", url: "https://belowzero.thunderstore.io/package/MrPurple6411/Tool_Inspection_BZ/" },
+  { name: "Unknown Name", url: "https://belowzero.thunderstore.io/package/MrPurple6411/Unknown_Name_BZ/" }
     ];
-
-
-// hello RevanFan and maybe others, if using one of the below variables for a URL, make sure in the url: "" you remove the "" and replace it just like `url: modder_desp` alright?
-
-var modder_metious_alan = "https://github.com/Metious/MetiousSubnauticaMods";
-var modder_mrpurple = "https://github.com/MrPurple6411/MrPurple6411-Subnautica-Mods/releases/tag/3.26.2022";
-var modder_dawrecka = "https://github.com/DaWrecka/Beta-Mods/tree/main/BelowZero";
-var modder_ramune = "https://github.com/RamuneNeptune/BelowZeroMods/releases/tag/Releases";
-var modder_desp = "https://github.com/desperationfighter/Desperationfighter-SubnauticaMods/releases";
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

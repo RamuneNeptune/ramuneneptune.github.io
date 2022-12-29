@@ -50,7 +50,8 @@ const mods = [
     { name: "Easy Craft", url: "https://www.nexusmods.com/subnautica/mods/24" },
     { name: "SMLHelper", url: "https://www.nexusmods.com/subnautica/mods/113" },
     { name: "Base Kits", url: "https://www.nexusmods.com/subnautica/mods/1119" },
-    { name: "Quit To Desktop", url: "https://submodica.xyz/mods/sn1/131" }
+    { name: "Quit To Desktop", url: "https://submodica.xyz/mods/sn1/131" },
+    { name: "Manage Creature Spawns", url: "https://www.nexusmods.com/subnautica/mods/92"}
     ];
 
     const container = document.querySelector(".button-container"); // get the container element
