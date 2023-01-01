@@ -26,10 +26,11 @@
     <main>
         <h1>Updated Mods</h1>
         <h2>The following mods are updated for the recent Subnautica 2.0 update<span class="br-main"></span>Each mod is to be installed to <strong>BepInEx\plugins</strong>, not <strong>QMods</strong> anymore</h2>
-
+        
         <p>━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
 
         <div class="button-container">
+
           <a href="https://www.nexusmods.com/subnautica/mods/1108" target="_blank" class="button">Subnautica BepInEx Pack</a> <h3>This mod is required to use any mods<br>Extract the zip file to your game folder</h3>
         </div>
 
@@ -42,13 +43,15 @@
         
         <h2>
           Ping me for any updated mods
-          <a class="button" id="button-clipboard" data-clipboard-text="@RamuneNeptune#1816" cursor="pointer">@RamuneNeptune#1816</a> Click my name to copy it!<br>
-          Please do not Message / DM me, you can simply <strong>@</strong> me in the  <a class="button" cursor="pointer">Subnautica Modding</a> discord
+          <a class="button" id="button-clipboard" data-clipboard-text="@RamuneNeptune#1816">@RamuneNeptune#1816</a> Click my name to copy it!<br>
+          Please do not Message / DM me, you can simply <strong>@</strong> me in the  <a class="button" id="button-discord">Subnautica Modding</a> discord
         </h2>    
 
         <script>
           var clipboard = new ClipboardJS('#button-clipboard');
           document.getElementById("button-clipboard").style.cursor = "pointer";
+          document.getElementById("button-discord").style.cursor = "pointer";
+
 
           function showAlert() {
             Swal.fire({

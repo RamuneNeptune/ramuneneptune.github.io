@@ -64,43 +64,47 @@ const mods = [
   { name: "Slot Extender", url: "https://www.nexusmods.com/subnautica/mods/142", date: "Dec 29th" },
   { name: "Quick Slots Plus", url: "https://www.nexusmods.com/subnautica/mods/984", date: "Dec 27th" },
   { name: "Fish Cannot Live Out Of Water", url: "https://www.nexusmods.com/subnautica/mods/709", date: "Dec 26th" },
+  { name: "Craftable Eggs", url: "https://www.nexusmods.com/subnautica/mods/213", date: "Dec 31st"},
+  { name: "Disable Crosshair SN", url: "https://www.nexusmods.com/subnautica/mods/839", date: "Dec 31st"},
+  { name: "Cheat Manager", url: "https://www.nexusmods.com/subnautica/mods/77", date: "Dec 29th" }
 ];
-    
+
 
 const container = document.querySelector(".button-container"); // get the container element
 
-mods.sort((a, b) => {
-  // Extract the number from each date using the String.match() method
-  const numberA = Number(a.date.match(/\d+/));
-  const numberB = Number(b.date.match(/\d+/));
+  mods.sort((a, b) => {
+    const numberA = Number(a.date.match(/\d+/));
+    const numberB = Number(b.date.match(/\d+/));
+  
+    if (numberA > numberB) {
+      return -1;
+    }
+    if (numberA < numberB) {
+      return 1;
+    }
+    return 0;
+  });
 
-  // Compare the numbers and return a value accordingly
-  if (numberA > numberB) {
-    return -1;
-  }
-  if (numberA < numberB) {
-    return 1;
-  }
-  return 0;
-});
+
 
 for (const mod of mods) { // loop through each object in the "mods" array
   const tag = document.createElement("a"); // create an <a> element
-  tag.href = mod.url; // set the href attribute to the url of the current mod
-  tag.target = "_blank"; // set the target attribute to "_blank" so the link opens in a new tab
-  tag.classList.add("button"); // add the class "button" to the <a> element
+  tag.href = mod.url; // set the <a> elements HTML
+  tag.target = "_blank"; // set the <a> elements HTML
+  tag.classList.add("button"); // set the <a> elements HTML
   
-  tag.innerText = mod.name + ' | '; // set the inner text of the <a> element to the name of the current mod
-  container.appendChild(tag); // append the <a> element to the container element
+  tag.innerText = mod.name + ' | '; 
+  container.appendChild(tag); 
   
   // Create a span element for the date
   const dateSpan = document.createElement("span");
   dateSpan.style.color = "#bebebe";
   dateSpan.innerText = mod.date;
 
-  const br = document.createElement("span"); // create a <span> element
-  br.classList.add("br-main"); // add the class "br-main" to the <span> element
-  container.appendChild(br); // append the <span> element to the container element
+  const br = document.createElement("span"); 
+  br.classList.add("br-main"); 
+  container.appendChild(br); 
 
   tag.appendChild(dateSpan);
 }
+
