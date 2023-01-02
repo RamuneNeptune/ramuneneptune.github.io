@@ -66,24 +66,60 @@ const mods = [
   { name: "Fish Cannot Live Out Of Water", url: "https://www.nexusmods.com/subnautica/mods/709", date: "Dec 26th" },
   { name: "Craftable Eggs", url: "https://www.nexusmods.com/subnautica/mods/213", date: "Dec 31st"},
   { name: "Disable Crosshair SN", url: "https://www.nexusmods.com/subnautica/mods/839", date: "Dec 31st"},
-  { name: "Cheat Manager", url: "https://www.nexusmods.com/subnautica/mods/77", date: "Dec 29th" }
+  { name: "Cheat Manager", url: "https://www.nexusmods.com/subnautica/mods/77", date: "Dec 29th" },
+  { name: "Scanner Room Control Chip (BepInEx)", url: "https://www.nexusmods.com/subnautica/mods/1150", date: "Jan 1st"},
+  { name: "Performance Booster", url: "https://www.nexusmods.com/subnautica/mods/389", date: "Jan 1st"},
+  { name: "Base Light Switch", url: "https://www.nexusmods.com/subnautica/mods/46", date: "Jan 1st"}
 ];
 
 
 const container = document.querySelector(".button-container"); // get the container element
 
-  mods.sort((a, b) => {
-    const numberA = Number(a.date.match(/\d+/));
-    const numberB = Number(b.date.match(/\d+/));
-  
-    if (numberA > numberB) {
-      return -1;
+mods.sort((a, b) => {
+  const dateA = a.date;
+  const dateB = b.date;
+
+  // Check if dateA or dateB starts with "Jan"
+  if (dateA.startsWith("Jan") || dateB.startsWith("Jan")) {
+    // Check if both dates start with "Jan"
+    if (dateA.startsWith("Jan") && dateB.startsWith("Jan")) {
+      // Both dates start with "Jan", so sort by number
+      const numberA = Number(dateA.match(/\d+/));
+      const numberB = Number(dateB.match(/\d+/));
+      if (numberA > numberB) {
+        return -1;
+      }
+      if (numberA < numberB) {
+        return 1;
+      }
+      return 0;
     }
-    if (numberA < numberB) {
-      return 1;
+    // One date starts with "Jan" and the other does not, so the date that starts with "Jan" comes first
+    return dateA.startsWith("Jan") ? -1 : 1;
+  }
+
+  // Check if dateA or dateB starts with "Dec"
+  if (dateA.startsWith("Dec") || dateB.startsWith("Dec")) {
+    // Check if both dates start with "Dec"
+    if (dateA.startsWith("Dec") && dateB.startsWith("Dec")) {
+      // Both dates start with "Dec", so sort by number
+      const numberA = Number(dateA.match(/\d+/));
+      const numberB = Number(dateB.match(/\d+/));
+      if (numberA > numberB) {
+        return -1;
+      }
+      if (numberA < numberB) {
+        return 1;
+      }
+      return 0;
     }
-    return 0;
-  });
+    // One date starts with "Dec" and the other does not, so the date that starts with "Dec" comes first
+    return dateA.startsWith("Dec") ? -1 : 1;
+  }
+
+  // If none of the above conditions are met, dates are not sorted
+  return 0;
+});
 
 
 
