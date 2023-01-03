@@ -69,7 +69,12 @@ const mods = [
   { name: "Cheat Manager", url: "https://www.nexusmods.com/subnautica/mods/77", date: "Dec 29th" },
   { name: "Scanner Room Control Chip (BepInEx)", url: "https://www.nexusmods.com/subnautica/mods/1150", date: "Jan 1st"},
   { name: "Performance Booster", url: "https://www.nexusmods.com/subnautica/mods/389", date: "Jan 1st"},
-  { name: "Base Light Switch", url: "https://www.nexusmods.com/subnautica/mods/46", date: "Jan 1st"}
+  { name: "Base Light Switch", url: "https://www.nexusmods.com/subnautica/mods/46", date: "Jan 1st"},
+  { name: "Mini Map ", url: "https://www.nexusmods.com/subnautica/mods/158", date: "Jan 2nd"},
+  { name: "Snap Turning (VR)", url: "https://www.nexusmods.com/subnautica/mods/289", date: "Jan 2nd"},
+  { name: "BZ Enameled Glass", url: "https://www.nexusmods.com/subnautica/mods/1152", date: "Jan 3rd"},
+  { name: "BZ Titanium Ingot", url: "https://www.nexusmods.com/subnautica/mods/1153", date: "Jan 3rd"},
+  { name: "", url: "", date: ""},
 ];
 
 
