@@ -74,6 +74,7 @@ const mods = [
   { name: "Snap Turning (VR)", url: "https://www.nexusmods.com/subnautica/mods/289", date: "Jan 2nd"},
   { name: "BZ Enameled Glass", url: "https://www.nexusmods.com/subnautica/mods/1152", date: "Jan 3rd"},
   { name: "BZ Titanium Ingot", url: "https://www.nexusmods.com/subnautica/mods/1153", date: "Jan 3rd"},
+  { name: "Achievement Unlocker", url: "https://www.nexusmods.com/subnautica/mods/1154", date: "Jan 4th"},
   { name: "", url: "", date: ""},
 ];
 
