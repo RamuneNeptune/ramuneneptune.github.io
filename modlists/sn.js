@@ -65,6 +65,8 @@ const mods = [
   { name: "Quick Slots Plus", url: "https://www.nexusmods.com/subnautica/mods/984", date: "Dec 27th" },
   { name: "Fish Cannot Live Out Of Water", url: "https://www.nexusmods.com/subnautica/mods/709", date: "Dec 26th" },
   { name: "Craftable Eggs", url: "https://www.nexusmods.com/subnautica/mods/213", date: "Dec 31st"},
+  { name: "Cyclops Docking Mod", url: "https://www.nexusmods.com/subnautica/mods/554", date: "Dec 30th"},
+  { name: "More Quick Slots (BepInEx)", url: "https://www.nexusmods.com/subnautica/mods/1111", date: "Jan 20th"},
   { name: "Disable Crosshair SN", url: "https://www.nexusmods.com/subnautica/mods/839", date: "Dec 31st"},
   { name: "Cheat Manager", url: "https://www.nexusmods.com/subnautica/mods/77", date: "Dec 29th" },
   { name: "Scanner Room Control Chip (BepInEx)", url: "https://www.nexusmods.com/subnautica/mods/1150", date: "Jan 1st"},
@@ -75,7 +77,8 @@ const mods = [
   { name: "BZ Enameled Glass", url: "https://www.nexusmods.com/subnautica/mods/1152", date: "Jan 3rd"},
   { name: "BZ Titanium Ingot", url: "https://www.nexusmods.com/subnautica/mods/1153", date: "Jan 3rd"},
   { name: "Achievement Unlocker", url: "https://www.nexusmods.com/subnautica/mods/1154", date: "Jan 4th"},
-  { name: "", url: "", date: ""},
+  { name: "More Resources Discovery (Scanner Room)", url: "https://www.nexusmods.com/subnautica/mods/406", date: "Jan 4th"},
+  { name: "Knife Damange & Distance", url: "https://www.nexusmods.com/subnautica/mods/1132", date: "Jan 4th"},
 ];
 
 
