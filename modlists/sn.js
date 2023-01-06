@@ -66,7 +66,7 @@ const mods = [
   { name: "Fish Cannot Live Out Of Water", url: "https://www.nexusmods.com/subnautica/mods/709", date: "Dec 26th" },
   { name: "Craftable Eggs", url: "https://www.nexusmods.com/subnautica/mods/213", date: "Dec 31st"},
   { name: "Cyclops Docking Mod", url: "https://www.nexusmods.com/subnautica/mods/554", date: "Dec 30th"},
-  { name: "More Quick Slots (BepInEx)", url: "https://www.nexusmods.com/subnautica/mods/1111", date: "Jan 20th"},
+  { name: "More Quick Slots (BepInEx)", url: "https://www.nexusmods.com/subnautica/mods/1111", date: "Dec 20th"},
   { name: "Disable Crosshair SN", url: "https://www.nexusmods.com/subnautica/mods/839", date: "Dec 31st"},
   { name: "Cheat Manager", url: "https://www.nexusmods.com/subnautica/mods/77", date: "Dec 29th" },
   { name: "Scanner Room Control Chip (BepInEx)", url: "https://www.nexusmods.com/subnautica/mods/1150", date: "Jan 1st"},
