@@ -78,7 +78,17 @@ const mods = [
   { name: "BZ Titanium Ingot", url: "https://www.nexusmods.com/subnautica/mods/1153", date: "Jan 3rd"},
   { name: "Achievement Unlocker", url: "https://www.nexusmods.com/subnautica/mods/1154", date: "Jan 4th"},
   { name: "More Resources Discovery (Scanner Room)", url: "https://www.nexusmods.com/subnautica/mods/406", date: "Jan 4th"},
-  { name: "Knife Damange & Distance", url: "https://www.nexusmods.com/subnautica/mods/1132", date: "Jan 4th"},
+  { name: "Knife Damange & Distance", url: "https://www.nexusmods.com/subnautica/mods/1132", date: "Dec 27th"},
+  { name: "Radio Distress Signal", url: "https://www.nexusmods.com/subnautica/mods/349", date: "Jan 7th"},
+  { name: "PDA Radio", url: "https://www.nexusmods.com/subnautica/mods/351", date: "Jan 7th"},
+  { name: "Customized Storage (BepInEx)", url: "https://submodica.xyz/mods/sn1/163", date: "Jan 7th"},
+  { name: "Remove Options Buttons", url: "https://submodica.xyz/mods/sn1/162", date: "Jan 5th"},
+  { name: "Refillable Oxygen Tanks", url: "https://www.nexusmods.com/subnautica/mods/67", date: "Jan 7th"},
+  { name: "Bag Equipment", url: "https://www.nexusmods.com/subnautica/mods/493", date: "Jan 7th"},
+  { name: "Snap Turning (VR)", url: "https://www.nexusmods.com/subnautica/mods/289", date: "Jan 7th"},
+  { name: "Cyclops Pitch Strafe", url: "https://www.nexusmods.com/subnautica/mods/1155", date: "Jan 5th"},
+  { name: "Enable Y-Axis (VR)", url: "https://www.nexusmods.com/subnautica/mods/1157", date: "Jan 6th"},
+  { name: "Drill Damage (BepInEx)", url: "https://www.nexusmods.com/subnautica/mods/1156", date: "Jan 5th"},
 ];
 
 
