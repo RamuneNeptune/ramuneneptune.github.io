@@ -89,17 +89,20 @@ const mods = [
   { name: "Cyclops Pitch Strafe", url: "https://www.nexusmods.com/subnautica/mods/1155", date: "Jan 5th"},
   { name: "Enable Y-Axis (VR)", url: "https://www.nexusmods.com/subnautica/mods/1157", date: "Jan 6th"},
   { name: "Drill Damage (BepInEx)", url: "https://www.nexusmods.com/subnautica/mods/1156", date: "Jan 5th"},
-
   { name: "Dynamic Scanner Blips", url: "https://www.nexusmods.com/subnautica/mods/1160", date: "Jan 8th"},
-  { name: "Cyclops Vehicle Upgrade Console", url: "https://www.nexusmods.com/subnautica/mods/1160", date: "Jan 8th"},
+  { name: "Cyclops Vehicle Upgrade Console", url: "https://submodica.xyz/mods/sn1/166", date: "Jan 8th"},
   { name: "Decorations Mod", url: "https://www.nexusmods.com/subnautica/mods/102", date: "Jan 10th"},
-
   { name: "Toilet Paper", url: "https://github.com/RamuneNeptune/SubnauticaMods/blob/main/README.md", date: "Jan 12th"},
   { name: "Oxygen Canister", url: "https://github.com/RamuneNeptune/SubnauticaMods/blob/main/README.md", date: "Jan 12th"},
   { name: "Faster Scanning", url: "https://github.com/RamuneNeptune/SubnauticaMods/blob/main/README.md", date: "Jan 12th"},
   { name: "Mega O₂ Tank", url: "https://github.com/RamuneNeptune/SubnauticaMods/blob/main/README.md", date: "Jan 12th"},
   { name: "Early Ion-Battery", url: "https://github.com/RamuneNeptune/SubnauticaMods/blob/main/README.md", date: "Jan 12th"},
   { name: "Mods Loaded", url: "https://github.com/RamuneNeptune/SubnauticaMods/blob/main/README.md", date: "Jan 12th"},
+
+  { name: "Swim Charge Inventory", url: "https://www.nexusmods.com/subnautica/mods/1169", date: "Jan 16th"},
+  { name: "Prawn Solar", url: "https://www.nexusmods.com/subnautica/mods/1170", date: "Jan 16th"},
+  { name: "Propulsion Cannon Settings", url: "https://www.nexusmods.com/subnautica/mods/1166", date: "Jan 13th"},
+  { name: "Solar Panel Plugin", url: "https://www.nexusmods.com/subnautica/mods/1167", date: "Jan 13th"},
 ];
 
 
