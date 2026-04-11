@@ -6,6 +6,10 @@ html, body {
     width: 100%;
   }
 
+  html {
+    font-size: 90%;
+  }
+
   :root {
     --stat-gradient-entries: linear-gradient(to right, #ff9f43, #ffd166, #fff27d);
     --stat-gradient-linked: linear-gradient(to right, #5cff8d, #9dff8c, #d9ff97);
