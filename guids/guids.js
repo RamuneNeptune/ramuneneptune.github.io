@@ -52,7 +52,6 @@ async function loadGuidList() {
       throw new Error("Could not load GUIDs.");
     }
 
-    const lastModified = response.headers.get("last-modified");
     const data = await response.json();
 
     guidEntries = [];
@@ -86,7 +85,6 @@ async function loadGuidList() {
     linkedCount.textContent = String(linkedEntries);
     unlinkedCount.textContent = String(unlinkedEntries);
     naCount.textContent = String(naEntries);
-    lastUpdated.textContent = lastModified ? formatDateTime(lastModified) : "Unavailable";
 
     renderGuidList();
   } catch (error) {
@@ -96,7 +94,6 @@ async function loadGuidList() {
     linkedCount.textContent = "-";
     unlinkedCount.textContent = "-";
     naCount.textContent = "-";
-    lastUpdated.textContent = "Unavailable";
     searchSummary.textContent = message;
     renderEmptyState(guidList, message);
   }
@@ -196,12 +193,15 @@ async function loadRecentHistory() {
     const historyEntries = await response.json();
 
     if (!Array.isArray(historyEntries) || historyEntries.length === 0) {
+      lastUpdated.textContent = "Unavailable";
       renderEmptyState(historyList, "Recent changes will appear once guids-history.json has data.");
       return;
     }
 
+    lastUpdated.textContent = formatDateTime(historyEntries[0].date);
     renderHistoryList(historyEntries);
   } catch (error) {
+    lastUpdated.textContent = "Unavailable";
     renderEmptyState(historyList, "Recent changes could not be loaded right now.");
   }
 }
