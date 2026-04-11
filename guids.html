@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GUIDs | RamuneNeptune</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="guids/guids.css">
+    <script src="guids/guids.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <div class="page-shell">
+        <header class="hero">
+          <h1>Mod Linked GUIDs</h1>
+          <p class="hero-copy">Search the current list of mod-linked (and non-linked if applicable) GUIDs, open linked pages, and see what's changed lately with the list.</p>
+        </header>
+
+        <section class="panel stats-panel" aria-label="GUID summary">
+          <div class="stat stat-entries">
+            <span class="stat-label">Entries</span>
+            <strong class="stat-value" id="total-count">-</strong>
+          </div>
+
+          <div class="stat stat-linked">
+            <span class="stat-label">Linked</span>
+            <strong class="stat-value" id="linked-count">-</strong>
+          </div>
+
+          <div class="stat stat-unlinked">
+            <span class="stat-label">Unlinked</span>
+            <strong class="stat-value" id="unlinked-count">-</strong>
+          </div>
+
+          <div class="stat stat-wide stat-updated">
+            <span class="stat-label">Last updated</span>
+            <strong class="stat-value" id="last-updated">Loading...</strong>
+          </div>
+        </section>
+
+        <section class="panel controls-panel">
+          <label class="search-label" for="guid-search">Search GUIDs</label>
+          <input id="guid-search" class="search-input" type="search" placeholder="Search by GUID" autocomplete="off">
+
+          <div class="filter-row" aria-label="GUID filter">
+            <span class="filter-label">Filter</span>
+
+            <div class="filter-group">
+              <button type="button" class="filter-button active" data-filter="all">All</button>
+              <button type="button" class="filter-button" data-filter="linked">Linked</button>
+              <button type="button" class="filter-button" data-filter="unlinked">Unlinked</button>
+            </div>
+          </div>
+
+          <p class="search-summary" id="search-summary">Loading GUID list...</p>
+        </section>
+
+        <section class="panel list-panel">
+          <div class="section-heading section-heading-split">
+            <div>
+              <h2>Current List</h2>
+              <p class="section-copy">The entries below are loaded directly from the current <code>GUIDs.json</code> file.</p>
+            </div>
+
+            <div class="mode-row" aria-label="Render mode">
+              <div class="mode-group">
+                <button type="button" class="mode-button active" data-mode="normal">Normal</button>
+                <button type="button" class="mode-button" data-mode="compact">Compact</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="guid-list" id="guid-list" aria-live="polite">
+            <p class="empty-state">Loading GUID list...</p>
+          </div>
+        </section>
+
+        <section class="panel history-panel">
+          <div class="section-heading">
+            <h2>Recent Changes</h2>
+            <p class="section-copy">Recent updates are pulled from the GitHub history for <code>GUIDs.json</code>.</p>
+          </div>
+
+          <div class="history-list" id="history-list" aria-live="polite">
+            <p class="empty-state">Loading recent changes...</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      Site Created by RamuneNeptune | <span class="favicon-credit">Favicon by "Acituanbus" &copy; CC By NC 4.0</span>
+    </footer>
+  </body>
+</html>
