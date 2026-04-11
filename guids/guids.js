@@ -159,17 +159,9 @@ function renderGuidList() {
     const actions = document.createElement("div");
     actions.className = "guid-actions";
 
-    const status = document.createElement("span");
-    status.className = `status-pill ${getEntryType(entry)}`;
-    status.textContent = getEntryStatusText(entry);
-
     copy.appendChild(name);
     copy.appendChild(urlText);
-    actions.appendChild(status);
-
-    if (getEntryType(entry) === "linked") {
-      actions.appendChild(makeOpenLink(entry.url));
-    }
+    actions.appendChild(makeStatusPill(entry));
 
     item.appendChild(copy);
     item.appendChild(actions);
@@ -265,20 +257,31 @@ function renderHistoryList(entries) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function makeOpenLink(url) {
-  const openLink = document.createElement("a");
-  openLink.className = "entry-button";
-  openLink.href = url;
-  openLink.target = "_blank";
-  openLink.rel = "noopener noreferrer";
+function makeStatusPill(entry) {
+  const entryType = getEntryType(entry);
 
-  const openLabel = document.createElement("span");
-  openLabel.textContent = "Open";
+  if (entryType === "linked") {
+    const linkedPill = document.createElement("a");
+    linkedPill.className = "status-pill linked";
+    linkedPill.href = entry.url;
+    linkedPill.target = "_blank";
+    linkedPill.rel = "noopener noreferrer";
+    linkedPill.setAttribute("aria-label", "Open linked page");
+    linkedPill.title = "Open linked page";
+    linkedPill.appendChild(makeOpenIcon());
 
-  openLink.appendChild(openLabel);
-  openLink.appendChild(makeOpenIcon());
+    const linkedLabel = document.createElement("span");
+    linkedLabel.textContent = "Linked";
+    linkedPill.appendChild(linkedLabel);
 
-  return openLink;
+    return linkedPill;
+  }
+
+  const statusPill = document.createElement("span");
+  statusPill.className = `status-pill ${entryType}`;
+  statusPill.textContent = getEntryStatusText(entry);
+
+  return statusPill;
 }
 
 function makeOpenIcon() {

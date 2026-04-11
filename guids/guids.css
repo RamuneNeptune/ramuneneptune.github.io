@@ -421,19 +421,20 @@ html, body {
 
   .guid-actions {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.55rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.45rem;
     flex-shrink: 0;
   }
 
   .guid-list.compact-mode .guid-actions {
-    flex-direction: row;
     align-items: center;
-    gap: 0.5rem;
   }
 
   .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     border-radius: 999px;
     border: 1px solid #2d2d2d;
     color: #d7d7d7;
@@ -441,11 +442,12 @@ html, body {
     font-weight: 1000;
     letter-spacing: 0.04em;
     padding: 0.35rem 0.65rem;
+    text-decoration: none;
     text-transform: uppercase;
+    transition: border-color 0.2s ease, color 0.2s ease;
   }
 
   .guid-list.compact-mode .status-pill {
-    order: 2;
     font-size: 0.68rem;
     padding: 0.28rem 0.5rem;
   }
@@ -453,6 +455,11 @@ html, body {
   .status-pill.linked {
     border-color: rgba(255, 166, 0, 0.7);
     color: #ffd27a;
+  }
+
+  .status-pill.linked:hover {
+    border-color: rgba(255, 166, 0, 0.95);
+    color: #ffe6aa;
   }
 
   .status-pill.unlinked {
@@ -465,7 +472,6 @@ html, body {
     color: #efbeff;
   }
 
-  .entry-button,
   .commit-link {
     color: transparent;
     background: white;
@@ -476,38 +482,21 @@ html, body {
     font-weight: 1000;
   }
 
-  .entry-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-  }
-
-  .guid-list.compact-mode .entry-button {
-    order: 1;
-    font-size: 0.82rem;
-  }
-
   .entry-icon {
-    width: 0.95rem;
-    height: 0.95rem;
+    width: 0.82rem;
+    height: 0.82rem;
     flex-shrink: 0;
     fill: none;
-    stroke: #ffffff;
+    stroke: currentColor;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 2;
-    transition: stroke 0.2s ease;
   }
 
-  .entry-button:hover,
   .commit-link:hover {
     background: linear-gradient(to right, #ffffff, #efefef, #ffffff);
     -webkit-background-clip: text;
     background-clip: text;
-  }
-
-  .entry-button:hover .entry-icon {
-    stroke: #ffffff;
   }
 
   mark {
