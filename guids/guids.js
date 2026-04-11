@@ -8,6 +8,7 @@ const CHANGE_TAG_LIMIT = 6;
 const totalCount = document.querySelector("#total-count");
 const linkedCount = document.querySelector("#linked-count");
 const unlinkedCount = document.querySelector("#unlinked-count");
+const naCount = document.querySelector("#na-count");
 const lastUpdated = document.querySelector("#last-updated");
 const searchInput = document.querySelector("#guid-search");
 const filterButtons = document.querySelectorAll(".filter-button");
@@ -70,16 +71,23 @@ async function loadGuidList() {
     });
 
     let linkedEntries = 0;
+    let unlinkedEntries = 0;
+    let naEntries = 0;
 
     for (const entry of guidEntries) {
-      if (entry.url !== "") {
+      if (getEntryType(entry) === "linked") {
         linkedEntries++;
+      } else if (getEntryType(entry) === "unlinked") {
+        unlinkedEntries++;
+      } else if (getEntryType(entry) === "na") {
+        naEntries++;
       }
     }
 
     totalCount.textContent = String(guidEntries.length);
     linkedCount.textContent = String(linkedEntries);
-    unlinkedCount.textContent = String(guidEntries.length - linkedEntries);
+    unlinkedCount.textContent = String(unlinkedEntries);
+    naCount.textContent = String(naEntries);
     lastUpdated.textContent = lastModified ? formatDateTime(lastModified) : "Unavailable";
 
     renderGuidList();
@@ -89,6 +97,7 @@ async function loadGuidList() {
     totalCount.textContent = "-";
     linkedCount.textContent = "-";
     unlinkedCount.textContent = "-";
+    naCount.textContent = "-";
     lastUpdated.textContent = "Unavailable";
     searchSummary.textContent = message;
     renderEmptyState(guidList, message);
@@ -150,20 +159,20 @@ function renderGuidList() {
 
     const urlText = document.createElement("p");
     urlText.className = "guid-url";
-    urlText.textContent = entry.url || "No linked page yet.";
+    urlText.textContent = getEntryUrlText(entry);
 
     const actions = document.createElement("div");
     actions.className = "guid-actions";
 
     const status = document.createElement("span");
-    status.className = `status-pill ${entry.url !== "" ? "linked" : "unlinked"}`;
-    status.textContent = entry.url !== "" ? "Linked" : "Unlinked";
+    status.className = `status-pill ${getEntryType(entry)}`;
+    status.textContent = getEntryStatusText(entry);
 
     copy.appendChild(name);
     copy.appendChild(urlText);
     actions.appendChild(status);
 
-    if (entry.url !== "") {
+    if (getEntryType(entry) === "linked") {
       actions.appendChild(makeOpenLink(entry.url));
     }
 
@@ -372,11 +381,15 @@ function updateRenderMode() {
 
 function entryMatchesFilter(entry) {
   if (currentFilter === "linked") {
-    return entry.url !== "";
+    return getEntryType(entry) === "linked";
   }
 
   if (currentFilter === "unlinked") {
-    return entry.url === "";
+    return getEntryType(entry) === "unlinked";
+  }
+
+  if (currentFilter === "na") {
+    return getEntryType(entry) === "na";
   }
 
   return true;
@@ -391,7 +404,47 @@ function getFilterLabel(filter) {
     return "unlinked";
   }
 
+  if (filter === "na") {
+    return "N/A";
+  }
+
   return "all";
+}
+
+function getEntryType(entry) {
+  if (typeof entry.url !== "string" || entry.url === "") {
+    return "unlinked";
+  }
+
+  if (entry.url.trim().toUpperCase() === "N/A") {
+    return "na";
+  }
+
+  return "linked";
+}
+
+function getEntryStatusText(entry) {
+  if (getEntryType(entry) === "linked") {
+    return "Linked";
+  }
+
+  if (getEntryType(entry) === "na") {
+    return "N/A";
+  }
+
+  return "Unlinked";
+}
+
+function getEntryUrlText(entry) {
+  if (getEntryType(entry) === "na") {
+    return "Potentially off-Nexus, bundled (in another mod), private, etc.";
+  }
+
+  if (getEntryType(entry) === "unlinked") {
+    return "No linked page yet.";
+  }
+
+  return entry.url;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////

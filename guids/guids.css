@@ -10,6 +10,7 @@ html, body {
     --stat-gradient-entries: linear-gradient(to right, #ff9f43, #ffd166, #fff27d);
     --stat-gradient-linked: linear-gradient(to right, #5cff8d, #9dff8c, #d9ff97);
     --stat-gradient-unlinked: linear-gradient(to right, #ff7373, #ff9e7a, #ffd37f);
+    --stat-gradient-na: linear-gradient(to right, #c39bff, #f0a8ff, #ffd4f4);
     --stat-gradient-updated: linear-gradient(to right, #7bc7ff, #87f0ff, #b6fff3);
   }
 
@@ -171,7 +172,7 @@ html, body {
 
   .stats-panel {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0.8rem;
   }
 
@@ -219,6 +220,10 @@ html, body {
 
   .stat-unlinked {
     --stat-gradient: var(--stat-gradient-unlinked);
+  }
+
+  .stat-na {
+    --stat-gradient: var(--stat-gradient-na);
   }
 
   .stat-updated {
@@ -451,6 +456,11 @@ html, body {
     color: #ff9898;
   }
 
+  .status-pill.na {
+    border-color: rgba(220, 150, 255, 0.45);
+    color: #efbeff;
+  }
+
   .entry-button,
   .commit-link {
     color: transparent;
@@ -585,7 +595,7 @@ html, body {
 
   @media (max-width: 900px) {
     .stats-panel {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .guid-item,
@@ -618,7 +628,7 @@ html, body {
     }
 
     .stats-panel {
-      grid-template-columns: minmax(0, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .guid-list {
@@ -627,6 +637,12 @@ html, body {
 
     .history-list {
       max-height: none;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .stats-panel {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 
