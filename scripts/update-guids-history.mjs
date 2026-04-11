@@ -135,7 +135,7 @@ function summarizePatch(patch) {
 
   const visibleTags = changeTags.slice(0, CHANGE_TAG_LIMIT);
   visibleTags.push({
-    type: "updated",
+    type: "more",
     label: `+${changeTags.length - CHANGE_TAG_LIMIT} more`
   });
 

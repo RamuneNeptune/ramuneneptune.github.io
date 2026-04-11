@@ -42,7 +42,7 @@
         "label": "~ Tobey.BepInEx.Timestamp"
       },
       {
-        "type": "updated",
+        "type": "more",
         "label": "+19 more"
       }
     ]
@@ -78,7 +78,7 @@
         "label": "+ ColorCyclop"
       },
       {
-        "type": "updated",
+        "type": "more",
         "label": "+314 more"
       }
     ]
