@@ -1,0 +1,46 @@
+name: Update GUIDs History
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - GUIDs.json
+      - scripts/update-guids-history.mjs
+      - .github/workflows/update-guids-history.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-history:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build guids-history.json
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/update-guids-history.mjs
+
+      - name: Commit updated history
+        run: |
+          if git diff --quiet -- guids-history.json; then
+            echo "No history changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add guids-history.json
+          git commit -m "Update GUIDs history"
+          git push

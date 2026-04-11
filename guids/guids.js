@@ -1,9 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const GUIDS_URL = "GUIDs.json";
-const HISTORY_REPO = "RamuneNeptune/ramuneneptune.github.io";
-const HISTORY_LIMIT = 20;
-const CHANGE_TAG_LIMIT = 6;
+const GUIDS_HISTORY_URL = "guids-history.json";
 
 const totalCount = document.querySelector("#total-count");
 const linkedCount = document.querySelector("#linked-count");
@@ -189,81 +187,23 @@ function renderGuidList() {
 
 async function loadRecentHistory() {
   try {
-    const response = await fetch(
-      `https://api.github.com/repos/${HISTORY_REPO}/commits?path=GUIDs.json&per_page=${HISTORY_LIMIT}`,
-      {
-        headers: {
-          Accept: "application/vnd.github+json"
-        }
-      }
-    );
+    const response = await fetch(GUIDS_HISTORY_URL, { cache: "no-store" });
 
     if (!response.ok) {
-      throw new Error("Could not load commit history.");
+      throw new Error("Could not load GUID history.");
     }
 
-    const commits = await response.json();
+    const historyEntries = await response.json();
 
-    if (!Array.isArray(commits) || commits.length === 0) {
-      renderEmptyState(historyList, "Recent changes will appear once GUIDs.json has GitHub history.");
+    if (!Array.isArray(historyEntries) || historyEntries.length === 0) {
+      renderEmptyState(historyList, "Recent changes will appear once guids-history.json has data.");
       return;
     }
 
-    const historyEntries = await Promise.all(commits.map(loadCommitDetail));
-    const visibleHistoryEntries = historyEntries.filter(Boolean);
-
-    if (visibleHistoryEntries.length === 0) {
-      renderEmptyState(historyList, "Recent changes will appear once GUIDs.json has GitHub history.");
-      return;
-    }
-
-    renderHistoryList(visibleHistoryEntries);
+    renderHistoryList(historyEntries);
   } catch (error) {
     renderEmptyState(historyList, "Recent changes could not be loaded right now.");
   }
-}
-
-async function loadCommitDetail(commitSummary) {
-  try {
-    const response = await fetch(`https://api.github.com/repos/${HISTORY_REPO}/commits/${commitSummary.sha}`, {
-      headers: {
-        Accept: "application/vnd.github+json"
-      }
-    });
-
-    if (!response.ok) {
-      return buildFallbackCommit(commitSummary);
-    }
-
-    const detail = await response.json();
-    let guidFile = null;
-
-    if (Array.isArray(detail.files)) {
-      guidFile = detail.files.find(function (file) {
-        return file.filename === "GUIDs.json";
-      });
-    }
-
-    return {
-      url: detail.html_url || commitSummary.html_url || "#",
-      message: getCommitTitle(detail.commit && detail.commit.message),
-      date: detail.commit && detail.commit.author ? detail.commit.author.date : "",
-      author: detail.commit && detail.commit.author ? detail.commit.author.name : "",
-      changeTags: summarizePatch(guidFile && guidFile.patch)
-    };
-  } catch (error) {
-    return buildFallbackCommit(commitSummary);
-  }
-}
-
-function buildFallbackCommit(commitSummary) {
-  return {
-    url: commitSummary.html_url || "#",
-    message: getCommitTitle(commitSummary.commit && commitSummary.commit.message),
-    date: commitSummary.commit && commitSummary.commit.author ? commitSummary.commit.author.date : "",
-    author: commitSummary.commit && commitSummary.commit.author ? commitSummary.commit.author.name : "",
-    changeTags: []
-  };
 }
 
 function renderHistoryList(entries) {
@@ -447,72 +387,6 @@ function getEntryUrlText(entry) {
   return entry.url;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function summarizePatch(patch) {
-  if (!patch) {
-    return [];
-  }
-
-  const added = new Map();
-  const removed = new Map();
-
-  for (const line of patch.split("\n")) {
-    if (line.startsWith("+++") || line.startsWith("---")) {
-      continue;
-    }
-
-    if (!line.startsWith("+") && !line.startsWith("-")) {
-      continue;
-    }
-
-    const match = line.match(/^[+-]\s*"([^"]+)":\s*"([^"]*)"/);
-
-    if (!match) {
-      continue;
-    }
-
-    const guid = match[1];
-    const value = match[2];
-
-    if (line.startsWith("+")) {
-      added.set(guid, value);
-    } else {
-      removed.set(guid, value);
-    }
-  }
-
-  const changeTags = [];
-
-  for (const [guid, value] of added.entries()) {
-    if (removed.has(guid)) {
-      if (removed.get(guid) !== value) {
-        changeTags.push({ type: "updated", label: `~ ${guid}` });
-      }
-
-      removed.delete(guid);
-    } else {
-      changeTags.push({ type: "added", label: `+ ${guid}` });
-    }
-  }
-
-  for (const guid of removed.keys()) {
-    changeTags.push({ type: "removed", label: `- ${guid}` });
-  }
-
-  if (changeTags.length <= CHANGE_TAG_LIMIT) {
-    return changeTags;
-  }
-
-  const visibleTags = changeTags.slice(0, CHANGE_TAG_LIMIT);
-  visibleTags.push({
-    type: "updated",
-    label: `+${changeTags.length - CHANGE_TAG_LIMIT} more`
-  });
-
-  return visibleTags;
-}
-
 function renderEmptyState(container, message) {
   const text = document.createElement("p");
   text.className = "empty-state";
@@ -554,14 +428,6 @@ function appendHighlightedGuid(container, text, searchText) {
   if (currentIndex < text.length) {
     container.appendChild(document.createTextNode(text.slice(currentIndex)));
   }
-}
-
-function getCommitTitle(message) {
-  if (!message) {
-    return "GUIDs.json updated";
-  }
-
-  return message.split("\n")[0].trim() || "GUIDs.json updated";
 }
 
 function getGuidLoadFailureMessage() {
