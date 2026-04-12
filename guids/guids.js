@@ -142,8 +142,9 @@ function renderGuidList() {
   const fragment = document.createDocumentFragment();
 
   for (const entry of filteredEntries) {
+    const entryType = getEntryType(entry);
     const item = document.createElement("article");
-    item.className = "guid-item";
+    item.className = `guid-item guid-item-${entryType}`;
 
     const copy = document.createElement("div");
     copy.className = "guid-copy";
@@ -384,7 +385,7 @@ function getEntryUrlText(entry) {
   }
 
   if (getEntryType(entry) === "unlinked") {
-    return "No linked page yet.";
+    return "No linked mod page yet.";
   }
 
   return entry.url;
