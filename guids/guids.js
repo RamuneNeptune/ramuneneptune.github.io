@@ -21,12 +21,18 @@ let currentRenderMode = "normal";
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+loadUrlState();
+updateFilterButtons();
+updateModeButtons();
+updateRenderMode();
+
 searchInput.addEventListener("input", renderGuidList);
 
 for (const button of filterButtons) {
   button.addEventListener("click", function () {
     currentFilter = button.dataset.filter;
     updateFilterButtons();
+    updateUrlState();
     renderGuidList();
   });
 }
@@ -36,6 +42,7 @@ for (const button of modeButtons) {
     currentRenderMode = button.dataset.mode;
     updateModeButtons();
     updateRenderMode();
+    updateUrlState();
   });
 }
 
@@ -85,6 +92,12 @@ async function loadGuidList() {
     linkedCount.textContent = String(linkedEntries);
     unlinkedCount.textContent = String(unlinkedEntries);
     naCount.textContent = String(naEntries);
+    updateFilterCounts({
+      all: guidEntries.length,
+      linked: linkedEntries,
+      unlinked: unlinkedEntries,
+      na: naEntries
+    });
 
     renderGuidList();
   } catch (error) {
@@ -94,6 +107,12 @@ async function loadGuidList() {
     linkedCount.textContent = "-";
     unlinkedCount.textContent = "-";
     naCount.textContent = "-";
+    updateFilterCounts({
+      all: "-",
+      linked: "-",
+      unlinked: "-",
+      na: "-"
+    });
     searchSummary.textContent = message;
     renderEmptyState(guidList, message);
   }
@@ -112,11 +131,14 @@ function renderGuidList() {
   const searchText = searchInput.value.trim();
   const searchTextLower = searchText.toLowerCase();
   const filteredEntries = [];
+  let totalEntriesForCurrentFilter = 0;
 
   for (const entry of guidEntries) {
     if (!entryMatchesFilter(entry)) {
       continue;
     }
+
+    totalEntriesForCurrentFilter++;
 
     if (searchTextLower !== "" && !entry.guid.toLowerCase().includes(searchTextLower)) {
       continue;
@@ -126,11 +148,15 @@ function renderGuidList() {
   }
 
   if (searchText !== "") {
-    searchSummary.textContent = `Showing ${filteredEntries.length} ${getFilterLabel(currentFilter)} entries for "${searchText}".`;
+    if (currentFilter === "all") {
+      searchSummary.textContent = `Showing ${filteredEntries.length} (of ${guidEntries.length}) entries for "${searchText}".`;
+    } else {
+      searchSummary.textContent = `Showing ${filteredEntries.length} (of ${totalEntriesForCurrentFilter}) ${getFilterLabel(currentFilter)} entries for "${searchText}".`;
+    }
   } else if (currentFilter === "all") {
     searchSummary.textContent = `Showing all ${guidEntries.length} entries.`;
   } else {
-    searchSummary.textContent = `Showing ${filteredEntries.length} ${getFilterLabel(currentFilter)} entries.`;
+    searchSummary.textContent = `Showing ${filteredEntries.length} (of ${totalEntriesForCurrentFilter}) ${getFilterLabel(currentFilter)} entries.`;
   }
 
   if (filteredEntries.length === 0) {
@@ -313,6 +339,18 @@ function updateFilterButtons() {
   }
 }
 
+function updateFilterCounts(counts) {
+  for (const button of filterButtons) {
+    const count = button.querySelector(".filter-count");
+
+    if (!count) {
+      continue;
+    }
+
+    count.textContent = String(counts[button.dataset.filter] ?? "-");
+  }
+}
+
 function updateModeButtons() {
   for (const button of modeButtons) {
     button.classList.toggle("active", button.dataset.mode === currentRenderMode);
@@ -321,6 +359,40 @@ function updateModeButtons() {
 
 function updateRenderMode() {
   guidList.classList.toggle("compact-mode", currentRenderMode === "compact");
+}
+
+function loadUrlState() {
+  const params = new URLSearchParams(window.location.search);
+  const filter = params.get("filter");
+  const mode = params.get("mode");
+
+  if (["all", "linked", "unlinked", "na"].includes(filter)) {
+    currentFilter = filter;
+  }
+
+  if (["normal", "compact"].includes(mode)) {
+    currentRenderMode = mode;
+  }
+}
+
+function updateUrlState() {
+  const params = new URLSearchParams(window.location.search);
+
+  if (currentFilter === "all") {
+    params.delete("filter");
+  } else {
+    params.set("filter", currentFilter);
+  }
+
+  if (currentRenderMode === "normal") {
+    params.delete("mode");
+  } else {
+    params.set("mode", currentRenderMode);
+  }
+
+  const query = params.toString();
+  const nextUrl = `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`;
+  window.history.replaceState(null, "", nextUrl);
 }
 
 function entryMatchesFilter(entry) {
