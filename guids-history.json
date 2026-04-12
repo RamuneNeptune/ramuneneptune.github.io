@@ -1,5 +1,41 @@
 [
   {
+    "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/f304affdccae67d115af7246961fafb9bde255b8",
+    "message": "Add 83 entries to GUIDs.json",
+    "date": "2026-04-12T02:37:47Z",
+    "author": "RamuneNeptune",
+    "changeTags": [
+      {
+        "type": "added",
+        "label": "+ AD3D_EnergySolution"
+      },
+      {
+        "type": "added",
+        "label": "+ AD3D_LightSolution"
+      },
+      {
+        "type": "added",
+        "label": "+ AD3D_LightSolution.SN"
+      },
+      {
+        "type": "added",
+        "label": "+ AD3D_StorageSolution"
+      },
+      {
+        "type": "added",
+        "label": "+ AD3D_StorageSolution.SN"
+      },
+      {
+        "type": "added",
+        "label": "+ aedenthorn.InventorySize"
+      },
+      {
+        "type": "more",
+        "label": "+76 more"
+      }
+    ]
+  },
+  {
     "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/acd14b32b416937a010f61dc8a454b18f685fb30",
     "message": "Mark more GUIDs as \"N/A\" and add more URLs",
     "date": "2026-04-11T17:40:01Z",
