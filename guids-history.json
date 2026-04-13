@@ -1,5 +1,41 @@
 [
   {
+    "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/d2e01144fa29fe050bce5fbe04d2467788830dc7",
+    "message": "Add 14 entries to GUIDs.json",
+    "date": "2026-04-13T04:50:22Z",
+    "author": "RamuneNeptune",
+    "changeTags": [
+      {
+        "type": "added",
+        "label": "+ Alchemy"
+      },
+      {
+        "type": "added",
+        "label": "+ Cookay_ConfigurableTanks"
+      },
+      {
+        "type": "added",
+        "label": "+ MrPurple6411_RandomCreatureSize"
+      },
+      {
+        "type": "added",
+        "label": "+ Valdyr.TimeSpeedMod"
+      },
+      {
+        "type": "added",
+        "label": "+ aedenthorn.AutoHarvest"
+      },
+      {
+        "type": "added",
+        "label": "+ com.Longlockername.mod"
+      },
+      {
+        "type": "more",
+        "label": "+10 more"
+      }
+    ]
+  },
+  {
     "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/d8a39f3de275b3dd52897735ec65306b9a996577",
     "message": "Add URL for \"com.dreamanchik.ExtraDecorRustyPack\"",
     "date": "2026-04-12T08:24:45Z",
