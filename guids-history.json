@@ -1,5 +1,25 @@
 [
   {
+    "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/8a94eb3ea75ef2f55b1104f45f8e89fdbf31ea4d",
+    "message": "Add 3 entries to GUIDs.json",
+    "date": "2026-04-13T07:31:35Z",
+    "author": "RamuneNeptune",
+    "changeTags": [
+      {
+        "type": "added",
+        "label": "+ com.haulinoats.moreleviathanspawnssn"
+      },
+      {
+        "type": "added",
+        "label": "+ com.jukebox.creatureconfigdamage"
+      },
+      {
+        "type": "added",
+        "label": "+ com.jukebox.creatureconfighealth"
+      }
+    ]
+  },
+  {
     "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/93b228abf424114f92fa1ca6518494945f0c4aac",
     "message": "Mark repkins mods as \"N/A\"",
     "date": "2026-04-13T05:04:17Z",
