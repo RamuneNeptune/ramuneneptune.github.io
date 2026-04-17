@@ -1,7 +1,8 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const GUIDS_URL = "GUIDs.json";
-const GUIDS_HISTORY_URL = "guids-history.json";
+const GUIDS_URL = "../GUIDs.json";
+const GUIDS_HISTORY_URL = "../guids-history.json";
+const GUIDS_REPO_URL = "https://github.com/RamuneNeptune/ramuneneptune.github.io/blob/main/GUIDs.json";
 
 const totalCount = document.querySelector("#total-count");
 const linkedCount = document.querySelector("#linked-count");
@@ -9,12 +10,14 @@ const unlinkedCount = document.querySelector("#unlinked-count");
 const naCount = document.querySelector("#na-count");
 const lastUpdated = document.querySelector("#last-updated");
 const searchInput = document.querySelector("#guid-search");
+const searchClearButton = document.querySelector("#guid-search-clear");
 const filterButtons = document.querySelectorAll(".filter-button");
 const modeButtons = document.querySelectorAll(".mode-button");
 const searchSummary = document.querySelector("#search-summary");
 const guidList = document.querySelector("#guid-list");
 const historyList = document.querySelector("#history-list");
 const collapsiblePanels = document.querySelectorAll(".collapsible-panel");
+const searchWrap = document.querySelector(".search-wrap");
 
 let guidEntries = [];
 let currentFilter = "all";
@@ -33,8 +36,18 @@ updateFilterButtons();
 updateModeButtons();
 updateRenderMode();
 initializeCollapsiblePanels();
+updateSearchClearVisibility();
 
 searchInput.addEventListener("input", function () {
+  updateSearchClearVisibility();
+  updateUrlState();
+  renderGuidList();
+});
+
+searchClearButton.addEventListener("click", function () {
+  searchInput.value = "";
+  searchInput.focus();
+  updateSearchClearVisibility();
   updateUrlState();
   renderGuidList();
 });
@@ -76,6 +89,7 @@ async function loadGuidList() {
 
     for (const [guid, url] of Object.entries(data)) {
       guidEntries.push({
+        order: guidEntries.length + 1,
         guid: guid,
         url: typeof url === "string" ? url : ""
       });
@@ -181,14 +195,14 @@ function renderGuidList() {
 
   if (searchText !== "") {
     if (currentFilter === "all") {
-      searchSummary.textContent = `Showing ${filteredEntries.length} (of ${guidEntries.length}) entries for "${searchText}".`;
+      searchSummary.textContent = `Showing ${filteredEntries.length} total entries for "${searchText}".`;
     } else {
-      searchSummary.textContent = `Showing ${filteredEntries.length} (of ${totalEntriesForCurrentFilter}) ${getFilterLabel(currentFilter)} entries for "${searchText}".`;
+      searchSummary.textContent = `Showing ${filteredEntries.length} ${getFilterLabel(currentFilter)} entries for "${searchText}".`;
     }
   } else if (currentFilter === "all") {
     searchSummary.textContent = `Showing all ${guidEntries.length} entries.`;
   } else {
-    searchSummary.textContent = `Showing ${filteredEntries.length} (of ${totalEntriesForCurrentFilter}) ${getFilterLabel(currentFilter)} entries.`;
+    searchSummary.textContent = `Showing ${filteredEntries.length} ${getFilterLabel(currentFilter)} entries.`;
   }
 
   if (filteredEntries.length === 0) {
@@ -204,12 +218,23 @@ function renderGuidList() {
     const item = document.createElement("article");
     item.className = `guid-item guid-item-${entryType}`;
 
+    const order = document.createElement("div");
+    order.className = "guid-order";
+    order.textContent = String(entry.order);
+
     const copy = document.createElement("div");
     copy.className = "guid-copy";
 
     const name = document.createElement("h3");
     name.className = "guid-name";
-    appendHighlightedGuid(name, entry.guid, searchText);
+
+    const nameLink = document.createElement("a");
+    nameLink.className = "guid-title-link";
+    nameLink.href = getGuidSourceUrl(entry);
+    nameLink.target = "_blank";
+    nameLink.rel = "noopener noreferrer";
+    appendHighlightedGuid(nameLink, entry.guid, searchText);
+    name.appendChild(nameLink);
 
     const urlText = document.createElement("p");
     urlText.className = "guid-url";
@@ -222,6 +247,7 @@ function renderGuidList() {
     copy.appendChild(urlText);
     actions.appendChild(makeStatusPill(entry));
 
+    item.appendChild(order);
     item.appendChild(copy);
     item.appendChild(actions);
     fragment.appendChild(item);
@@ -429,7 +455,7 @@ function updateFilterCounts(counts, searchMatches) {
 
     if (matchCount > 0) {
       const match = document.createElement("span");
-      match.className = "filter-count-match";
+      match.className = `filter-count-match filter-count-match-${button.dataset.filter}`;
       match.textContent = ` (${matchCount})`;
       count.appendChild(match);
     }
@@ -444,6 +470,10 @@ function updateModeButtons() {
 
 function updateRenderMode() {
   guidList.classList.toggle("compact-mode", currentRenderMode === "compact");
+}
+
+function updateSearchClearVisibility() {
+  searchWrap.classList.toggle("has-value", searchInput.value.trim() !== "");
 }
 
 function loadUrlState() {
@@ -558,6 +588,10 @@ function getEntryUrlText(entry) {
   }
 
   return entry.url;
+}
+
+function getGuidSourceUrl(entry) {
+  return `${GUIDS_REPO_URL}#L${entry.order + 1}`;
 }
 
 function renderEmptyState(container, message) {
