@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Me | RamuneNeptune</title>
+    <link rel="shortcut icon" href="../favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/guids/guids.css">
+    <style>
+      :root {
+        --page-ui-scale: 0.94;
+      }
+      body {
+        min-height: 100vh;
+        position: relative;
+        isolation: isolate;
+        background-color: #080808;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          linear-gradient(rgba(8, 8, 8, 0.56), rgba(8, 8, 8, 0.78)),
+          url("../bg.jpg") center 24% / cover no-repeat;
+        transform: scale(1.03);
+        transform-origin: center;
+        z-index: -2;
+      }
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at top center, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.22) 48%, rgba(0, 0, 0, 0.42));
+        pointer-events: none;
+        z-index: -1;
+      }
+      main {
+        min-height: 0;
+        align-items: center;
+        padding: 1rem;
+      }
+      .page-shell {
+        width: min(34rem, 100%);
+        zoom: var(--page-ui-scale);
+      }
+      @supports not (zoom: 1) {
+        .page-shell {
+          transform: scale(var(--page-ui-scale));
+          transform-origin: top center;
+        }
+      }
+      .find-panel {
+        padding: 1.4rem;
+        background: rgba(16, 16, 16, 0.76);
+        border-color: rgba(58, 58, 58, 0.52);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+      .pill-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.9rem;
+      }
+      .link-item {
+        display: grid;
+        gap: 0.45rem;
+        justify-items: center;
+      }
+      .link-blurb {
+        color: #f0f0f0;
+        font-size: 0.98rem;
+        font-weight: 1000;
+        line-height: 1.35;
+        margin: 0;
+        max-width: 28rem;
+        text-align: center;
+      }
+      .download-blurb {
+        color: #9d9d9d;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.2;
+        margin: 0;
+        max-width: 28rem;
+        text-align: center;
+      }
+      .pill-link {
+        --pill-hover-border: rgba(255, 166, 0, 0.85);
+        display: inline-grid;
+        grid-template-columns: 1.5rem auto 1.5rem;
+        align-items: center;
+        gap: 0.75rem;
+        width: min(100%, 26rem);
+        justify-content: center;
+        background: rgba(12, 12, 12, 0.72);
+        border: 1px solid rgba(52, 52, 52, 0.72);
+        border-radius: 999px;
+        color: #d0d0d0;
+        font-size: 0.98rem;
+        font-weight: 1000;
+        padding: 0.9rem 1rem;
+        text-decoration: none;
+        transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+      .pill-icon-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 0.45rem;
+        overflow: hidden;
+      }
+      .pill-icon {
+        width: 1.4rem;
+        height: 1.4rem;
+        display: block;
+        object-fit: contain;
+      }
+      .pill-label {
+        text-align: center;
+      }
+      .pill-balance {
+        width: 1.5rem;
+        height: 1px;
+      }
+      .pill-link:hover {
+        border-color: var(--pill-hover-border);
+        color: #ffffff;
+        transform: translateY(-1px);
+      }
+      .pill-copy-link {
+        appearance: none;
+        cursor: pointer;
+        font: inherit;
+      }
+      .pill-copy-link:focus-visible {
+        outline: 2px solid var(--pill-hover-border);
+        outline-offset: 3px;
+      }
+      footer a {
+        color: #9ad5ff;
+      }
+      @media (max-width: 900px) {
+        body::before {
+          background-position: 58% center;
+          transform: scale(1.08);
+        }
+      }
+      @media (max-width: 640px) {
+        body::before {
+          background-position: 62% center;
+        }
+        main {
+          padding: 0.85rem 0.75rem;
+        }
+        .find-panel {
+          padding: 1.1rem;
+        }
+      }
+      @media (max-width: 420px) {
+        body::before {
+          background-position: 64% center;
+          transform: scale(1.12);
+        }
+        .pill-link {
+          width: min(100%, 22rem);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="page-shell">
+
+        <section class="panel find-panel">
+          <div class="pill-list">
+            <div class="link-item">
+              <p class="link-blurb">I make mods for Subnautica</p>
+              <p class="download-blurb">350,000+ Downloads</p>
+              <a class="pill-link" style="--pill-hover-border: rgba(255, 133, 27, 0.9);" href="https://www.nexusmods.com/profile/RamuneNeptune/mods?sortBy=downloads" target="_blank" rel="noreferrer">
+                <span class="pill-icon-wrap">
+                  <img class="pill-icon" src="https://www.nexusmods.com/favicon.ico" alt="">
+                </span>
+                <span class="pill-label">Nexus Mods</span>
+                <span class="pill-balance" aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <div class="link-item">
+              <p class="link-blurb">I make mods for Content Warning</p>
+              <p class="download-blurb">950,000+ Downloads</p>
+              <a class="pill-link" style="--pill-hover-border: rgba(61, 184, 255, 0.9);" href="https://thunderstore.io/c/content-warning/p/RamuneNeptune/?ordering=most-downloaded" target="_blank" rel="noreferrer">
+                <span class="pill-icon-wrap">
+                  <img class="pill-icon" src="https://thunderstore.io/static/icon.ffafeeaa3ecf.png" alt="">
+                </span>
+                <span class="pill-label">Thunderstore</span>
+                <span class="pill-balance" aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <div class="link-item">
+              <p class="link-blurb">I make mods for Risk of Rain 2</p>
+              <p class="download-blurb">1,500+ Downloads</p>
+              <a class="pill-link" style="--pill-hover-border: rgba(61, 184, 255, 0.9);" href="https://thunderstore.io/package/RamuneNeptune/?ordering=most-downloaded" target="_blank" rel="noreferrer">
+                <span class="pill-icon-wrap">
+                  <img class="pill-icon" src="https://thunderstore.io/static/icon.ffafeeaa3ecf.png" alt="">
+                </span>
+                <span class="pill-label">Thunderstore</span>
+                <span class="pill-balance" aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <div class="link-item">
+              <p class="link-blurb">I share my code, too!</p>
+              <p class="download-blurb">71,000+ Downloads (via releases)</p>
+              <a class="pill-link" style="--pill-hover-border: rgba(240, 240, 240, 0.8);" href="https://github.com/RamuneNeptune" target="_blank" rel="noreferrer">
+                <span class="pill-icon-wrap">
+                  <img class="pill-icon" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/GitHub_Invertocat_Logo_invert.svg" alt="">
+                </span>
+                <span class="pill-label">GitHub</span>
+                <span class="pill-balance" aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <div class="link-item">
+              <p class="link-blurb">And have my own server</p>
+              <p class="download-blurb">No downloads.. hopefully</p>
+              <a class="pill-link" style="--pill-hover-border: rgba(255, 238, 184, 0.772);" href="https://discord.gg/mfSfXPPkgR" target="_blank" rel="noreferrer">
+                <span class="pill-icon-wrap">
+                  <img class="pill-icon" src="https://images-ext-1.discordapp.net/external/SGX8mYXQghtP0UglOTxPKVT-eDhh7oPa4uEYCO8kdT4/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1430102432536330312/f07e4fa6fb9e5f4799d5e9b2f05c3e74.png" alt="">
+                </span>
+                <span class="pill-label">discord.gg/mfSfXPPkgR</span>
+                <span class="pill-balance" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel find-panel">
+          <div class="pill-list">
+            <div class="link-item">
+              <button class="pill-link pill-copy-link" type="button" style="--pill-hover-border: rgba(88, 101, 242, 0.9);" data-copy-text="@ramuneneptune" data-copy-label="@ramuneneptune" aria-label="Copy Discord username">
+                <span class="pill-icon-wrap">
+                  <img class="pill-icon" src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d7f4ef6498ac018f2c55_Symbol.svg" alt="">
+                </span>
+                <span class="pill-label">@ramuneneptune</span>
+                <span class="pill-balance" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="link-item">
+              <button class="pill-link pill-copy-link" type="button" style="--pill-hover-border: rgba(255, 44, 188, 0.745);" data-copy-text="@ehhramune" data-copy-label="@ehhramune" aria-label="Copy Instagram handle">
+                <span class="pill-icon-wrap">
+                  <img class="pill-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Instagram_white.svg" alt="">
+                </span>
+                <span class="pill-label">@ehhramune</span>
+                <span class="pill-balance" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer>
+      Site Created by <a href="https://github.com/RamuneNeptune" target="_blank" rel="noreferrer">RamuneNeptune</a> | <span class="favicon-credit">Favicon by "Acituanbus" &copy; CC By NC 4.0</span>
+    </footer>
+    <script>
+      const copyButtons = document.querySelectorAll(".pill-copy-link");
+
+      async function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return;
+        }
+
+        const fallback = document.createElement("textarea");
+        fallback.value = text;
+        fallback.setAttribute("readonly", "");
+        fallback.style.position = "absolute";
+        fallback.style.left = "-9999px";
+        document.body.appendChild(fallback);
+        fallback.select();
+        document.execCommand("copy");
+        document.body.removeChild(fallback);
+      }
+
+      copyButtons.forEach((button) => {
+        button.addEventListener("click", async () => {
+          const label = button.querySelector(".pill-label");
+          const originalLabel = button.dataset.copyLabel || label.textContent;
+
+          try {
+            await copyText(button.dataset.copyText || originalLabel);
+            label.textContent = "Copied!";
+          } catch (error) {
+            label.textContent = "Failed to copy";
+          }
+
+          window.clearTimeout(button.copyTimeoutId);
+          button.copyTimeoutId = window.setTimeout(() => {
+            label.textContent = originalLabel;
+          }, 1200);
+        });
+      });
+    </script>
+  </body>
+</html>

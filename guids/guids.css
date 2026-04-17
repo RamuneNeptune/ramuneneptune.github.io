@@ -336,6 +336,10 @@ html, body {
     gap: 0.7rem;
   }
 
+  .search-wrap {
+    position: relative;
+  }
+
   .search-label {
     color: #f1f1f1;
     font-size: 0.95rem;
@@ -349,14 +353,52 @@ html, body {
     border: 1px solid rgba(52, 52, 52, 0.72);
     border-radius: 0.8rem;
     font: inherit;
-    padding: 0.85rem 0.95rem;
+    padding: 0.85rem 2.6rem 0.85rem 0.95rem;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
   }
 
   .search-input:focus {
     border-color: rgba(255, 166, 0, 0.65);
     box-shadow: 0 0 0 3px rgba(255, 166, 0, 0.12);
+  }
+
+  .search-clear {
+    position: absolute;
+    top: 50%;
+    right: 0.8rem;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    color: rgba(255, 255, 255, 0.38);
+    cursor: pointer;
+    display: none;
+    font: inherit;
+    font-size: 0.95rem;
+    line-height: 1;
+    padding: 0.15rem;
+    transition: color 0.2s ease;
+  }
+
+  .search-wrap.has-value .search-clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-clear:hover {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .search-clear:focus-visible {
+    outline: 2px solid rgba(255, 166, 0, 0.65);
+    outline-offset: 2px;
+    border-radius: 0.3rem;
   }
 
   .filter-row {
@@ -418,6 +460,18 @@ html, body {
 
   .filter-count-match {
     color: #e0b64a;
+  }
+
+  .filter-count-match-linked {
+    color: #7aff8e;
+  }
+
+  .filter-count-match-unlinked {
+    color: #ff9898;
+  }
+
+  .filter-count-match-na {
+    color: #efbeff;
   }
 
   .filter-button:hover,
@@ -713,6 +767,10 @@ html, body {
     color: #a7a7a7;
     font-size: 0.9em;
     margin-top: 1rem;
+  }
+
+  footer a {
+    color: #9ad5ff;
   }
 
   .favicon-credit {

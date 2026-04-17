@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const GUIDS_URL = "GUIDs.json";
-const GUIDS_HISTORY_URL = "guids-history.json";
+const GUIDS_URL = "../GUIDs.json";
+const GUIDS_HISTORY_URL = "../guids-history.json";
 
 const totalCount = document.querySelector("#total-count");
 const linkedCount = document.querySelector("#linked-count");
@@ -9,12 +9,14 @@ const unlinkedCount = document.querySelector("#unlinked-count");
 const naCount = document.querySelector("#na-count");
 const lastUpdated = document.querySelector("#last-updated");
 const searchInput = document.querySelector("#guid-search");
+const searchClearButton = document.querySelector("#guid-search-clear");
 const filterButtons = document.querySelectorAll(".filter-button");
 const modeButtons = document.querySelectorAll(".mode-button");
 const searchSummary = document.querySelector("#search-summary");
 const guidList = document.querySelector("#guid-list");
 const historyList = document.querySelector("#history-list");
 const collapsiblePanels = document.querySelectorAll(".collapsible-panel");
+const searchWrap = document.querySelector(".search-wrap");
 
 let guidEntries = [];
 let currentFilter = "all";
@@ -33,8 +35,18 @@ updateFilterButtons();
 updateModeButtons();
 updateRenderMode();
 initializeCollapsiblePanels();
+updateSearchClearVisibility();
 
 searchInput.addEventListener("input", function () {
+  updateSearchClearVisibility();
+  updateUrlState();
+  renderGuidList();
+});
+
+searchClearButton.addEventListener("click", function () {
+  searchInput.value = "";
+  searchInput.focus();
+  updateSearchClearVisibility();
   updateUrlState();
   renderGuidList();
 });
@@ -181,14 +193,14 @@ function renderGuidList() {
 
   if (searchText !== "") {
     if (currentFilter === "all") {
-      searchSummary.textContent = `Showing ${filteredEntries.length} (of ${guidEntries.length}) entries for "${searchText}".`;
+      searchSummary.textContent = `Showing ${filteredEntries.length} total entries for "${searchText}".`;
     } else {
-      searchSummary.textContent = `Showing ${filteredEntries.length} (of ${totalEntriesForCurrentFilter}) ${getFilterLabel(currentFilter)} entries for "${searchText}".`;
+      searchSummary.textContent = `Showing ${filteredEntries.length} ${getFilterLabel(currentFilter)} entries for "${searchText}".`;
     }
   } else if (currentFilter === "all") {
     searchSummary.textContent = `Showing all ${guidEntries.length} entries.`;
   } else {
-    searchSummary.textContent = `Showing ${filteredEntries.length} (of ${totalEntriesForCurrentFilter}) ${getFilterLabel(currentFilter)} entries.`;
+    searchSummary.textContent = `Showing ${filteredEntries.length} ${getFilterLabel(currentFilter)} entries.`;
   }
 
   if (filteredEntries.length === 0) {
@@ -429,7 +441,7 @@ function updateFilterCounts(counts, searchMatches) {
 
     if (matchCount > 0) {
       const match = document.createElement("span");
-      match.className = "filter-count-match";
+      match.className = `filter-count-match filter-count-match-${button.dataset.filter}`;
       match.textContent = ` (${matchCount})`;
       count.appendChild(match);
     }
@@ -444,6 +456,10 @@ function updateModeButtons() {
 
 function updateRenderMode() {
   guidList.classList.toggle("compact-mode", currentRenderMode === "compact");
+}
+
+function updateSearchClearVisibility() {
+  searchWrap.classList.toggle("has-value", searchInput.value.trim() !== "");
 }
 
 function loadUrlState() {
