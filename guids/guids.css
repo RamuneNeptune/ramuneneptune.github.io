@@ -31,6 +31,30 @@ html, body {
 
     display: grid;
     grid-template-rows: 1fr auto;
+
+    position: relative;
+    isolation: isolate;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(rgba(8, 8, 8, 0.56), rgba(8, 8, 8, 0.78)),
+      url("../bg.jpg") center 24% / cover no-repeat;
+    transform: scale(1.03);
+    transform-origin: center;
+    z-index: -2;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top center, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.22) 48%, rgba(0, 0, 0, 0.42));
+    pointer-events: none;
+    z-index: -1;
   }
 
   main {
@@ -127,11 +151,75 @@ html, body {
 /*---------------------- PANELS ---------------------*/
 
   .panel {
-    background: #101010;
-    border: 1px solid #232323;
+    background: rgba(16, 16, 16, 0.76);
+    border: 1px solid rgba(58, 58, 58, 0.52);
     border-radius: 1rem;
     margin-bottom: 1rem;
     padding: 1.1rem 1.1rem 1.2rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .collapsible-panel {
+    padding: 0.95rem 1.1rem 1rem;
+  }
+
+  .panel-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .panel-title {
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 1000;
+    margin: 0;
+  }
+
+  .panel-toggle {
+    background: transparent;
+    border: 1px solid rgba(72, 72, 72, 0.4);
+    border-radius: 0.7rem;
+    color: #9f9f9f;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 1000;
+    letter-spacing: 0.08em;
+    padding: 0.38rem 0.62rem;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .panel-toggle:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+  }
+
+  .panel-toggle:focus-visible {
+    outline: 2px solid rgba(255, 166, 0, 0.65);
+    outline-offset: 3px;
+  }
+
+  .panel-body {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .collapsible-panel.collapsed {
+    padding-bottom: 0.95rem;
+  }
+
+  .collapsible-panel.collapsed .panel-topbar {
+    margin-bottom: 0;
+  }
+
+  .collapsible-panel.collapsed .panel-body {
+    display: none;
   }
 
   .section-heading {
@@ -164,8 +252,8 @@ html, body {
 
   code {
     color: #f3f3f3;
-    background: #181818;
-    border: 1px solid #2a2a2a;
+    background: rgba(24, 24, 24, 0.78);
+    border: 1px solid rgba(60, 60, 60, 0.68);
     border-radius: 0.45rem;
     padding: 0.1rem 0.35rem;
     font-family: Consolas, 'Courier New', monospace;
@@ -185,8 +273,8 @@ html, body {
 
   .stat {
     --stat-gradient: var(--stat-gradient-entries);
-    background: #0c0c0c;
-    border: 1px solid #1d1d1d;
+    background: rgba(12, 12, 12, 0.72);
+    border: 1px solid rgba(52, 52, 52, 0.72);
     border-radius: 0.85rem;
     padding: 0.9rem;
   }
@@ -256,9 +344,9 @@ html, body {
 
   .search-input {
     width: 100%;
-    background: #0c0c0c;
+    background: rgba(12, 12, 12, 0.72);
     color: white;
-    border: 1px solid #2a2a2a;
+    border: 1px solid rgba(52, 52, 52, 0.72);
     border-radius: 0.8rem;
     font: inherit;
     padding: 0.85rem 0.95rem;
@@ -310,8 +398,8 @@ html, body {
     display: inline-flex;
     align-items: center;
     gap: 0.42rem;
-    background: #0c0c0c;
-    border: 1px solid #2a2a2a;
+    background: rgba(12, 12, 12, 0.72);
+    border: 1px solid rgba(52, 52, 52, 0.72);
     border-radius: 999px;
     color: #d0d0d0;
     cursor: pointer;
@@ -326,6 +414,10 @@ html, body {
     color: #7a7a7a;
     font-size: 0.84em;
     font-weight: 700;
+  }
+
+  .filter-count-match {
+    color: #e0b64a;
   }
 
   .filter-button:hover,
@@ -382,7 +474,7 @@ html, body {
   }
 
   .history-item {
-    background: #0c0c0c;
+    background: rgba(12, 12, 12, 0.72);
   }
 
   .guid-item {
@@ -390,7 +482,7 @@ html, body {
     background:
       var(--guid-item-wash),
       linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0)),
-      #0c0c0c;
+      rgba(12, 12, 12, 0.72);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -479,7 +571,7 @@ html, body {
     align-items: center;
     gap: 0.35rem;
     border-radius: 999px;
-    border: 1px solid #2d2d2d;
+    border: 1px solid rgba(58, 58, 58, 0.78);
     color: #d7d7d7;
     font-size: 0.76rem;
     font-weight: 1000;
@@ -585,7 +677,7 @@ html, body {
 
   .change-tag {
     border-radius: 999px;
-    border: 1px solid #292929;
+    border: 1px solid rgba(56, 56, 56, 0.78);
     color: #e3e3e3;
     font-size: 0.82rem;
     padding: 0.35rem 0.65rem;
@@ -634,6 +726,11 @@ html, body {
 /*---------------------- MOBILE ---------------------*/
 
   @media (max-width: 900px) {
+    body::before {
+      background-position: 58% center;
+      transform: scale(1.08);
+    }
+
     .stats-panel {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -659,12 +756,20 @@ html, body {
   }
 
   @media (max-width: 640px) {
+    body::before {
+      background-position: 62% center;
+    }
+
     main {
       padding: 1.2rem 0.75rem 2rem;
     }
 
     .panel {
       padding: 0.95rem;
+    }
+
+    .collapsible-panel {
+      padding: 0.9rem 0.95rem 0.95rem;
     }
 
     .stats-panel {
@@ -681,6 +786,11 @@ html, body {
   }
 
   @media (max-width: 420px) {
+    body::before {
+      background-position: 64% center;
+      transform: scale(1.12);
+    }
+
     .stats-panel {
       grid-template-columns: minmax(0, 1fr);
     }

@@ -14,10 +14,17 @@ const modeButtons = document.querySelectorAll(".mode-button");
 const searchSummary = document.querySelector("#search-summary");
 const guidList = document.querySelector("#guid-list");
 const historyList = document.querySelector("#history-list");
+const collapsiblePanels = document.querySelectorAll(".collapsible-panel");
 
 let guidEntries = [];
 let currentFilter = "all";
 let currentRenderMode = "normal";
+let filterTotals = {
+  all: 0,
+  linked: 0,
+  unlinked: 0,
+  na: 0
+};
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -25,8 +32,12 @@ loadUrlState();
 updateFilterButtons();
 updateModeButtons();
 updateRenderMode();
+initializeCollapsiblePanels();
 
-searchInput.addEventListener("input", renderGuidList);
+searchInput.addEventListener("input", function () {
+  updateUrlState();
+  renderGuidList();
+});
 
 for (const button of filterButtons) {
   button.addEventListener("click", function () {
@@ -92,12 +103,13 @@ async function loadGuidList() {
     linkedCount.textContent = String(linkedEntries);
     unlinkedCount.textContent = String(unlinkedEntries);
     naCount.textContent = String(naEntries);
-    updateFilterCounts({
+    filterTotals = {
       all: guidEntries.length,
       linked: linkedEntries,
       unlinked: unlinkedEntries,
       na: naEntries
-    });
+    };
+    updateFilterCounts(filterTotals);
 
     renderGuidList();
   } catch (error) {
@@ -107,12 +119,13 @@ async function loadGuidList() {
     linkedCount.textContent = "-";
     unlinkedCount.textContent = "-";
     naCount.textContent = "-";
-    updateFilterCounts({
+    filterTotals = {
       all: "-",
       linked: "-",
       unlinked: "-",
       na: "-"
-    });
+    };
+    updateFilterCounts(filterTotals);
     searchSummary.textContent = message;
     renderEmptyState(guidList, message);
   }
@@ -131,21 +144,40 @@ function renderGuidList() {
   const searchText = searchInput.value.trim();
   const searchTextLower = searchText.toLowerCase();
   const filteredEntries = [];
+  const searchMatchCounts = {
+    all: 0,
+    linked: 0,
+    unlinked: 0,
+    na: 0
+  };
   let totalEntriesForCurrentFilter = 0;
 
   for (const entry of guidEntries) {
+    const entryType = getEntryType(entry);
+    const matchesSearch = searchTextLower === "" || entry.guid.toLowerCase().includes(searchTextLower);
+
+    searchMatchCounts.all++;
+    searchMatchCounts[entryType]++;
+
+    if (!matchesSearch) {
+      searchMatchCounts.all--;
+      searchMatchCounts[entryType]--;
+    }
+
     if (!entryMatchesFilter(entry)) {
       continue;
     }
 
     totalEntriesForCurrentFilter++;
 
-    if (searchTextLower !== "" && !entry.guid.toLowerCase().includes(searchTextLower)) {
+    if (!matchesSearch) {
       continue;
     }
 
     filteredEntries.push(entry);
   }
+
+  updateFilterCounts(filterTotals, searchText === "" ? null : searchMatchCounts);
 
   if (searchText !== "") {
     if (currentFilter === "all") {
@@ -284,6 +316,44 @@ function renderHistoryList(entries) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function initializeCollapsiblePanels() {
+  for (const panel of collapsiblePanels) {
+    const toggleButton = panel.querySelector("[data-panel-toggle]");
+
+    if (!toggleButton || !panel.dataset.panelId) {
+      continue;
+    }
+
+    const isCollapsed = window.localStorage.getItem(getPanelStorageKey(panel.dataset.panelId)) === "collapsed";
+    setPanelCollapsed(panel, isCollapsed);
+
+    toggleButton.addEventListener("click", function () {
+      const shouldCollapse = !panel.classList.contains("collapsed");
+      setPanelCollapsed(panel, shouldCollapse);
+      window.localStorage.setItem(getPanelStorageKey(panel.dataset.panelId), shouldCollapse ? "collapsed" : "expanded");
+    });
+  }
+}
+
+function setPanelCollapsed(panel, isCollapsed) {
+  const toggleButton = panel.querySelector("[data-panel-toggle]");
+
+  panel.classList.toggle("collapsed", isCollapsed);
+
+  if (!toggleButton) {
+    return;
+  }
+
+  toggleButton.textContent = isCollapsed ? "Expand" : "Minimize";
+  toggleButton.setAttribute("aria-expanded", String(!isCollapsed));
+}
+
+function getPanelStorageKey(panelId) {
+  return `guids-panel-${panelId}`;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function makeStatusPill(entry) {
   const entryType = getEntryType(entry);
 
@@ -339,7 +409,7 @@ function updateFilterButtons() {
   }
 }
 
-function updateFilterCounts(counts) {
+function updateFilterCounts(counts, searchMatches) {
   for (const button of filterButtons) {
     const count = button.querySelector(".filter-count");
 
@@ -347,7 +417,22 @@ function updateFilterCounts(counts) {
       continue;
     }
 
-    count.textContent = String(counts[button.dataset.filter] ?? "-");
+    const baseCount = counts[button.dataset.filter] ?? "-";
+
+    if (!searchMatches || baseCount === "-") {
+      count.textContent = String(baseCount);
+      continue;
+    }
+
+    const matchCount = searchMatches[button.dataset.filter] ?? 0;
+    count.textContent = String(baseCount);
+
+    if (matchCount > 0) {
+      const match = document.createElement("span");
+      match.className = "filter-count-match";
+      match.textContent = ` (${matchCount})`;
+      count.appendChild(match);
+    }
   }
 }
 
@@ -364,19 +449,25 @@ function updateRenderMode() {
 function loadUrlState() {
   const params = new URLSearchParams(window.location.search);
   const filter = params.get("filter");
-  const mode = params.get("mode");
+  const view = params.get("view");
+  const search = params.get("search");
 
   if (["all", "linked", "unlinked", "na"].includes(filter)) {
     currentFilter = filter;
   }
 
-  if (["normal", "compact"].includes(mode)) {
-    currentRenderMode = mode;
+  if (["normal", "compact"].includes(view)) {
+    currentRenderMode = view;
+  }
+
+  if (typeof search === "string" && search !== "") {
+    searchInput.value = search;
   }
 }
 
 function updateUrlState() {
   const params = new URLSearchParams(window.location.search);
+  const search = searchInput.value.trim();
 
   if (currentFilter === "all") {
     params.delete("filter");
@@ -385,9 +476,15 @@ function updateUrlState() {
   }
 
   if (currentRenderMode === "normal") {
-    params.delete("mode");
+    params.delete("view");
   } else {
-    params.set("mode", currentRenderMode);
+    params.set("view", currentRenderMode);
+  }
+
+  if (search === "") {
+    params.delete("search");
+  } else {
+    params.set("search", search);
   }
 
   const query = params.toString();
