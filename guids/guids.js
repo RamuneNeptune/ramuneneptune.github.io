@@ -370,7 +370,7 @@ function setPanelCollapsed(panel, isCollapsed) {
     return;
   }
 
-  toggleButton.textContent = isCollapsed ? "Expand" : "Minimize";
+  toggleButton.textContent = isCollapsed ? "+" : "x";
   toggleButton.setAttribute("aria-expanded", String(!isCollapsed));
 }
 

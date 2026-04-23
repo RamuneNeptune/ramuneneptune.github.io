@@ -1,0 +1,123 @@
+main {
+  padding: 2.4rem 1rem 3rem;
+}
+
+.compare-shell {
+  width: min(40rem, 100%);
+}
+
+.panel {
+  margin-bottom: 1rem;
+}
+
+.panel .panel-body {
+  gap: 0.9rem;
+}
+
+.upload-box {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1rem 1.05rem;
+  background: rgba(12, 12, 12, 0.72);
+  border: 1px solid rgba(52, 52, 52, 0.72);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.upload-box:hover {
+  border-color: rgba(255, 166, 0, 0.85);
+  background: rgba(12, 12, 12, 0.82);
+  transform: translateY(-1px);
+}
+
+.upload-title {
+  color: rgba(222, 222, 222, 0.9);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.action-row .panel-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: border-color 0.08s ease, color 0.08s ease, background-color 0.08s ease, transform 0.06s ease, box-shadow 0.08s ease;
+}
+
+.action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+}
+
+.action-icon img,
+.action-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.action-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.status-copy {
+  color: #a7a7a7;
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+.action-row .panel-toggle[disabled] {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.action-row .panel-toggle:not([disabled]):active,
+.action-row .panel-toggle.action-pressed {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 166, 0, 0.45);
+  color: #ffffff;
+  transform: translateY(1px) scale(0.985);
+  box-shadow: inset 0 0 0 1px rgba(255, 166, 0, 0.08);
+}
+
+.result-block {
+  margin: 0;
+  padding: 1rem;
+  background: rgba(12, 12, 12, 0.72);
+  border: 1px solid rgba(52, 52, 52, 0.72);
+  border-radius: 0.85rem;
+  color: #f0f0f0;
+  font: 0.95rem/1.55 Consolas, "Courier New", monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  main {
+    padding: 1.2rem 0.75rem 2rem;
+  }
+}

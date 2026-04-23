@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
   <head>
@@ -8,13 +8,16 @@
     <title>GUIDs | RamuneNeptune</title>
     <link rel="shortcut icon" href="../favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="guids.css">
-    <script src="guids.js" defer></script>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" type="text/css" href="../shared/shared.css">
+    <link rel="stylesheet" type="text/css" href="../guids/guids.css">
+    <script src="../guids/guids.js" defer></script>
   </head>
 
-  <body>
-    <main>
-      <div class="page-shell">
+  <body class="site-page">
+    <main class="page-main">
+      <div class="page-shell page-shell-wide">
         <header class="hero">
           <h1>Mod Linked GUIDs</h1>
           <p class="hero-copy">Search the current list of mod-linked (and non-linked if applicable) GUIDs, open linked pages, and see what's changed lately with the list.</p>
@@ -23,7 +26,7 @@
         <section class="panel collapsible-panel" aria-label="GUID summary" data-panel-id="summary">
           <div class="panel-topbar">
             <h2 class="panel-title">Summary</h2>
-            <button type="button" class="panel-toggle" data-panel-toggle aria-expanded="true">Minimize</button>
+            <button type="button" class="panel-toggle" data-panel-toggle aria-expanded="true">x</button>
           </div>
           <div class="panel-body">
             <div class="stats-panel">
@@ -58,12 +61,12 @@
         <section class="panel controls-panel collapsible-panel" data-panel-id="controls">
           <div class="panel-topbar">
             <h2 class="panel-title">Search & Filters</h2>
-            <button type="button" class="panel-toggle" data-panel-toggle aria-expanded="true">Minimize</button>
+            <button type="button" class="panel-toggle" data-panel-toggle aria-expanded="true">x</button>
           </div>
           <div class="panel-body">
             <div class="search-wrap">
               <input id="guid-search" class="search-input" type="search" placeholder="Search by GUID" autocomplete="off">
-              <button type="button" class="search-clear" id="guid-search-clear" aria-label="Clear search">✖</button>
+              <button type="button" class="search-clear" id="guid-search-clear" aria-label="Clear search">âœ–</button>
             </div>
 
             <div class="filter-row" aria-label="GUID filter">
@@ -94,10 +97,32 @@
           </div>
         </section>
 
+        <section class="panel compare-callout-panel" aria-label="Compare your GUID file">
+          <div class="compare-callout-copy">
+            <p class="compare-callout-kicker">Got your own GUID list?</p>
+            <p class="compare-callout-text">If you have exported your GUIDs with the GUIDExporter mod (creates a JSON file at /BepInEx/plugins/GUIDExporter/), you can use the comparison tool to find entries that are missing from this list and report them to @ramuneneptune on Discord.</p>
+          </div>
+
+          <div class="compare-callout-actions">
+            <a class="compare-callout-secondary compare-callout-action" href="/GUIDExporter.zip">
+              <span>Get GUIDExporter</span>
+              <span class="compare-callout-icon" aria-hidden="true">
+                <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/svgs/solid/download.svg" alt="">
+              </span>
+            </a>
+            <a class="compare-callout-link compare-callout-action" href="/compare/">
+              <span>Open Comparison Tool</span>
+              <span class="compare-callout-icon" aria-hidden="true">
+                <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/svgs/solid/link.svg" alt="">
+              </span>
+            </a>
+          </div>
+        </section>
+
         <section class="panel list-panel collapsible-panel" data-panel-id="current-list">
           <div class="panel-topbar">
             <h2 class="panel-title">Current List</h2>
-            <button type="button" class="panel-toggle" data-panel-toggle aria-expanded="true">Minimize</button>
+            <button type="button" class="panel-toggle" data-panel-toggle aria-expanded="true">x</button>
           </div>
           <div class="panel-body">
             <div class="section-heading section-heading-split">
@@ -122,7 +147,7 @@
         <section class="panel history-panel collapsible-panel" data-panel-id="recent-changes">
           <div class="panel-topbar">
             <h2 class="panel-title">Recent Changes</h2>
-            <button type="button" class="panel-toggle" data-panel-toggle aria-expanded="true">Minimize</button>
+            <button type="button" class="panel-toggle" data-panel-toggle aria-expanded="true">x</button>
           </div>
           <div class="panel-body">
             <div class="section-heading">
@@ -137,7 +162,7 @@
       </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       Site Created by <a href="https://github.com/RamuneNeptune" target="_blank" rel="noreferrer">RamuneNeptune</a> | <span class="favicon-credit">Favicon by "Acituanbus" &copy; CC By NC 4.0</span>
     </footer>
   </body>

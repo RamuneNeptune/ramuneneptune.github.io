@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compare | RamuneNeptune</title>
+    <link rel="shortcut icon" href="../favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" type="text/css" href="../shared/shared.css">
+    <link rel="stylesheet" type="text/css" href="./compare.css">
+    <script src="./compare.js" defer></script>
+  </head>
+
+  <body class="site-page">
+    <main class="page-main">
+      <div class="page-shell page-shell-wide compare-shell">
+        <header class="hero">
+          <h1>GUID Comparison Tool</h1>
+          <p class="hero-copy">Drop in a GUIDs.json file and check for entries missing from the site's <code>GUIDs.json</code> file. If missing entries are found, please feel free to send them to @ramuneneptune.</p>
+        </header>
+
+        <section class="panel compare-panel">
+          <div class="panel-topbar">
+            <h2 class="panel-title">Upload</h2>
+          </div>
+          <div class="panel-body">
+            <label class="upload-box" for="guid-file">
+              <span class="upload-title">Click here to select a JSON file</span>
+            </label>
+            <input id="guid-file" class="file-input" type="file" accept=".json,application/json">
+            <p class="status-copy" id="status-copy">Waiting for a JSON file.</p>
+          </div>
+        </section>
+
+        <section class="panel results-panel">
+          <div class="panel-topbar">
+            <h2 class="panel-title">Result</h2>
+            <div class="action-row">
+              <button type="button" class="panel-toggle" id="copy-button" disabled>
+                <span class="action-icon" aria-hidden="true">
+                  <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/svgs/solid/copy.svg" alt="">
+                </span>
+                <span>Copy</span>
+              </button>
+              <button type="button" class="panel-toggle" id="save-button" disabled>
+                <span class="action-icon" aria-hidden="true">
+                  <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/svgs/solid/floppy-disk.svg" alt="">
+                </span>
+                <span>Save File</span>
+              </button>
+              <button type="button" class="panel-toggle" id="clear-button" disabled>
+                <span class="action-icon" aria-hidden="true">
+                  <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/svgs/solid/xmark.svg" alt="">
+                </span>
+                <span>Clear</span>
+              </button>
+            </div>
+          </div>
+          <div class="panel-body">
+            <pre class="result-block" id="result-block">{}</pre>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      Site Created by <a href="https://github.com/RamuneNeptune" target="_blank" rel="noreferrer">RamuneNeptune</a> | <span class="favicon-credit">Favicon by "Acituanbus" &copy; CC By NC 4.0</span>
+    </footer>
+  </body>
+</html>

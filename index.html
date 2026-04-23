@@ -8,154 +8,16 @@
     <title>Home | RamuneNeptune</title>
     <link rel="shortcut icon" href="favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="guids/guids.css">
+    <link rel="stylesheet" type="text/css" href="shared/shared.css">
     <style>
       :root {
-        --page-ui-scale: 0.94;
-      }
-      body {
-        min-height: 100vh;
-        position: relative;
-        isolation: isolate;
-        background-color: #080808;
-      }
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background:
-          linear-gradient(rgba(8, 8, 8, 0.56), rgba(8, 8, 8, 0.78)),
-          url("bg.jpg") center 24% / cover no-repeat;
-        transform: scale(1.03);
-        transform-origin: center;
-        z-index: -2;
-      }
-      body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(circle at top center, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.22) 48%, rgba(0, 0, 0, 0.42));
-        pointer-events: none;
-        z-index: -1;
-      }
-      main {
-        min-height: 0;
-        align-items: center;
-        padding: 1rem;
-      }
-      .page-shell {
-        width: min(34rem, 100%);
-        zoom: var(--page-ui-scale);
-      }
-      @supports not (zoom: 1) {
-        .page-shell {
-          transform: scale(var(--page-ui-scale));
-          transform-origin: top center;
-        }
+        --site-bg-image: url("../bg.jpg");
       }
       .find-panel {
         padding: 1.45rem;
-        background: rgba(16, 16, 16, 0.76);
-        border-color: rgba(58, 58, 58, 0.52);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-      }
-      .hero {
-        margin-bottom: 1.35rem;
-      }
-      .hero-copy {
-        margin-bottom: 0;
-      }
-      .hero-eyebrow {
-        color: #a7a7a7;
-        font-size: 0.82rem;
-        font-weight: 1000;
-        letter-spacing: 0.12em;
-        margin: 0 0 0.55rem;
-        text-transform: uppercase;
-      }
-      .selector-list {
-        display: grid;
-        gap: 0.95rem;
-      }
-      .selector-card {
-        --selector-accent: rgba(255, 166, 0, 0.85);
-        display: grid;
-        gap: 0.7rem;
-        padding: 1rem 1.05rem;
-        background: rgba(12, 12, 12, 0.72);
-        border: 1px solid rgba(52, 52, 52, 0.72);
-        border-radius: 1rem;
-        color: inherit;
-        text-decoration: none;
-        transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
-      }
-      .selector-card:hover {
-        border-color: var(--selector-accent);
-        background: rgba(12, 12, 12, 0.82);
-        transform: translateY(-1px);
-      }
-      .selector-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.9rem;
-      }
-      .selector-title-wrap {
-        display: grid;
-        gap: 0.2rem;
-        min-width: 0;
-      }
-      .selector-kicker {
-        color: #9d9d9d;
-        font-size: 0.76rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        margin: 0;
-        text-transform: uppercase;
-      }
-      .selector-title {
-        color: #f4f4f4;
-        font-size: 1.08rem;
-        font-weight: 1000;
-        line-height: 1.2;
-        margin: 0;
-        transition: color 0.2s ease;
-      }
-      .selector-arrow {
-        color: #b8b8b8;
-        font-size: 1.25rem;
-        font-weight: 1000;
-        line-height: 1;
-        flex-shrink: 0;
-        transition: color 0.2s ease, transform 0.2s ease;
-      }
-      .selector-card:hover .selector-title,
-      .selector-card:hover .selector-arrow {
-        color: var(--selector-accent);
-      }
-      .selector-card:hover .selector-arrow {
-        transform: translateX(1px);
       }
       .link-blurb {
-        color: #cfcfcf;
-        font-size: 0.95rem;
-        font-weight: 700;
-        line-height: 1.45;
-        margin: 0;
-        max-width: 26rem;
         text-align: left;
-      }
-      .download-blurb {
-        color: #9d9d9d;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        line-height: 1.2;
-        margin: 0;
-        max-width: 28rem;
-        text-align: center;
-        text-transform: uppercase;
       }
       .section-copy {
         color: #c8c8c8;
@@ -163,84 +25,70 @@
         margin: 0;
         text-align: center;
       }
-      footer a {
-        color: #9ad5ff;
-      }
-      @media (max-width: 900px) {
-        body::before {
-          background-position: 58% center;
-          transform: scale(1.08);
-        }
-      }
       @media (max-width: 640px) {
-        body::before {
-          background-position: 62% center;
-        }
-        main {
-          padding: 0.85rem 0.75rem;
-        }
         .find-panel {
           padding: 1.1rem;
-        }
-      }
-      @media (max-width: 420px) {
-        body::before {
-          background-position: 64% center;
-          transform: scale(1.12);
-        }
-        .selector-card {
-          padding: 0.9rem;
         }
       }
     </style>
   </head>
 
-  <body>
-    <main>
-      <div class="page-shell">
+  <body class="site-page">
+    <main class="page-main page-main-narrow">
+      <div class="page-shell page-shell-narrow">
         <section class="panel find-panel">
           <h2 class="section-copy">Where would you like to go?</h2>
         </section>
 
-          <div class="selector-list">
-            <a class="selector-card" style="--selector-accent: rgba(132, 255, 87, 0.879);" href="aboutme/">
-              <div class="selector-head">
-                <div class="selector-title-wrap">
-                  <p class="selector-kicker"></p>
-                  <p class="selector-title">1. About me</p>
-                </div>
-                <span class="selector-arrow" aria-hidden="true">↗</span>
+        <div class="stack-list stack-list-compact">
+          <a class="surface-link surface-link-card" style="--surface-link-accent: rgba(132, 255, 87, 0.83);" href="aboutme/">
+            <div class="surface-link-head">
+              <div class="surface-link-title-wrap">
+                <p class="surface-link-kicker"></p>
+                <p class="surface-link-title">1. About me</p>
               </div>
-              <p class="link-blurb">Links, socials, etc.</p>
-            </a>
+              <span class="surface-link-arrow" aria-hidden="true">&#8599;</span>
+            </div>
+            <p class="blurb-main blurb-main-soft link-blurb">Links, socials, etc.</p>
+          </a>
 
-            <a class="selector-card" style="--selector-accent: rgba(70, 218, 255, 0.823);" href="guids/">
-              <div class="selector-head">
-                <div class="selector-title-wrap">
-                  <p class="selector-kicker"></p>
-                  <p class="selector-title">2. GUIDs</p>
-                </div>
-                <span class="selector-arrow" aria-hidden="true">↗</span>
+          <a class="surface-link surface-link-card" style="--surface-link-accent: rgba(70, 218, 255, 0.83);" href="guids/">
+            <div class="surface-link-head">
+              <div class="surface-link-title-wrap">
+                <p class="surface-link-kicker"></p>
+                <p class="surface-link-title">2. GUIDs List</p>
               </div>
-              <p class="link-blurb">Mod-linked GUIDs, used to power Find My Updates (FMU)</p>
-            </a>
+              <span class="surface-link-arrow" aria-hidden="true">&#8599;</span>
+            </div>
+            <p class="blurb-main blurb-main-soft link-blurb">A filterable list of mod-linked GUIDs, used to power version checking for Find My Updates (FMU)</p>
+          </a>
 
-            <a class="selector-card" style="--selector-accent: rgba(255, 214, 66, 0.823);" href="piracy/">
-              <div class="selector-head">
-                <div class="selector-title-wrap">
-                  <p class="selector-kicker">Tutorial</p>
-                  <p class="selector-title">3. Removing piracy protection from my mods</p>
-                </div>
-                <span class="selector-arrow" aria-hidden="true">↗</span>
+          <a class="surface-link surface-link-card" style="--surface-link-accent: rgba(255, 80, 133, 0.83);" href="compare/">
+            <div class="surface-link-head">
+              <div class="surface-link-title-wrap">
+                <p class="surface-link-kicker"></p>
+                <p class="surface-link-title">3. GUID Compare</p>
               </div>
-              <p class="link-blurb">A to-the-point guide on disabling my anti-piracy systems</p>
-            </a>
-          </div>
-          
+              <span class="surface-link-arrow" aria-hidden="true">&#8599;</span>
+            </div>
+            <p class="blurb-main blurb-main-soft link-blurb">Compare your GUIDs.json against the site's file to find missing entries (send missing entries to me!)</p>
+          </a>
+
+          <a class="surface-link surface-link-card" style="--surface-link-accent: rgba(255, 214, 66, 0.83);" href="piracy/">
+            <div class="surface-link-head">
+              <div class="surface-link-title-wrap">
+                <p class="surface-link-kicker">Tutorial</p>
+                <p class="surface-link-title">4. Removing piracy protection from my mods</p>
+              </div>
+              <span class="surface-link-arrow" aria-hidden="true">&#8599;</span>
+            </div>
+            <p class="blurb-main blurb-main-soft link-blurb">A to-the-point guide on disabling my anti-piracy systems</p>
+          </a>
+        </div>
       </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       Site Created by <a href="https://github.com/RamuneNeptune" target="_blank" rel="noreferrer">RamuneNeptune</a> | <span class="favicon-credit">Favicon by "Acituanbus" &copy; CC By NC 4.0</span>
     </footer>
   </body>
