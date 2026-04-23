@@ -1,5 +1,41 @@
 [
   {
+    "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/088710adfd8f5a0b02998ece8a87259e98d0d928",
+    "message": "Added several entries and a few URLs to GUIDs.json",
+    "date": "2026-04-23T22:57:03Z",
+    "author": "RamuneNeptune",
+    "changeTags": [
+      {
+        "type": "updated",
+        "label": "~ AD3D_EnergySolution"
+      },
+      {
+        "type": "updated",
+        "label": "~ AD3D_LightSolution"
+      },
+      {
+        "type": "updated",
+        "label": "~ AD3D_StorageSolution"
+      },
+      {
+        "type": "added",
+        "label": "+ com.hydronautica.hammermod"
+      },
+      {
+        "type": "added",
+        "label": "+ com.kaithebat.CustomLoadScreen"
+      },
+      {
+        "type": "added",
+        "label": "+ com.lee23.blueprintsearchbar"
+      },
+      {
+        "type": "more",
+        "label": "+20 more"
+      }
+    ]
+  },
+  {
     "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/8a94eb3ea75ef2f55b1104f45f8e89fdbf31ea4d",
     "message": "Add 3 entries to GUIDs.json",
     "date": "2026-04-13T07:31:35Z",
