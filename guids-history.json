@@ -1,5 +1,41 @@
 [
   {
+    "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/d60111c967563e0a6ff4ab430c96e0135b224b1b",
+    "message": "Add URL for 41 entries and mark 5 as N/A",
+    "date": "2026-04-24T07:19:54Z",
+    "author": "RamuneNeptune",
+    "changeTags": [
+      {
+        "type": "updated",
+        "label": "~ aedenthorn.SeamothTopographicMap"
+      },
+      {
+        "type": "updated",
+        "label": "~ Aether.ProtectionShield"
+      },
+      {
+        "type": "updated",
+        "label": "~ com.Aftershock3995.AftershockPanel"
+      },
+      {
+        "type": "updated",
+        "label": "~ com.appendixis.nopausepdaonbase"
+      },
+      {
+        "type": "updated",
+        "label": "~ com.BetterHUDInfo.Mimes"
+      },
+      {
+        "type": "updated",
+        "label": "~ com.bradisbrad.SeaLevelMod_SN"
+      },
+      {
+        "type": "more",
+        "label": "+40 more"
+      }
+    ]
+  },
+  {
     "url": "https://github.com/RamuneNeptune/ramuneneptune.github.io/commit/e134334103b7356a0e0d7e4be38d02469f405264",
     "message": "Add 14 entries to GUIDs.json",
     "date": "2026-04-24T06:24:35Z",
